@@ -5,3 +5,10 @@
     margin-top: 25px;
     margin-bottom: 25px;
 }
+
+/* ------------------------- Card Slots */
+
+.card-slot {
+    width: 25%;
+    margin: 25%;
+}
