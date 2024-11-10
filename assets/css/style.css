@@ -14,3 +14,24 @@ body {
     margin-top: 25px;
     margin-bottom: 25px;
 }
+
+/* ------------------------- Card Display Area */
+
+.card-display-area {
+    min-height: 50vh;
+}
+    
+.card-slot-wrapper {
+    width: 25%;
+    margin: auto;
+}
+
+/* ------------------------- Card Slot */
+
+.card-slot {
+    border: 2px solid black;
+    border-radius: 5%;
+    height: 500px;
+    width: 300px;
+    background-color: rgba(210, 210, 210, 0.3);
+}
