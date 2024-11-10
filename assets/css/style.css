@@ -35,3 +35,13 @@ body {
     width: 300px;
     background-color: rgba(210, 210, 210, 0.3);
 }
+
+/* ------------------------- Draw Specific Card */
+
+.draw-specific {
+    border: 2px solid black;
+    border-radius: 5%;
+    background-color: rgba(210, 210, 210, 0.7);
+    min-height: 300px;
+    padding: 25px;
+}
