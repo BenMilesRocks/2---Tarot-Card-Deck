@@ -7,3 +7,10 @@ body {
     background-repeat: no-repeat;
 }
 
+/* ------------------------- Deck Controls */
+
+.deck-controls, 
+.draw-controls {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
