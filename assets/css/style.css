@@ -1,0 +1,9 @@
+/* ------------------------- Background Image */
+
+body {
+    background-image: url(/assets/images/background.jpg);
+    background-size: cover;
+    background-position: fixed;
+    background-repeat: no-repeat;
+}
+
