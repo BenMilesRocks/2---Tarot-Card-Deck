@@ -12,4 +12,28 @@ let deck = {
     drawnCards: [],
 }
 
+// deckShuffle ---- Function for shuffling deck
+// ----seperate function for firstShuffle, pulling fullDeck into shuffledDeck
+// ----shuffles existing shuffledDeck array, so as not to include drawnCards
+
+// drawCard ---- Function for drawing cards
+// ----adds cards to drawnCards
+// ----removes cards from shuffledDeck
+// ----sends cardDrawn variable to displayCard function
+// ----pushes length of shuffledDeck array to "max" value on number input
+
+// drawSpecificCard ---- Function for drawing specific card
+// ----adds event listener to #draw-card-specific, passing card number back to function
+// ----pushes specific array number to drawCard function
+
+// displayCard ---- Function for displaying cards to play area
+// ----displays card based on cardDrawn
+// ----reads draw-options radio buttons to see if card should be normal, inverted or random
+// ========inverted cards adds css class .inverted-card to element, to display upside down
+
+// resetDeck ---- Funtion for resetting the play area, reshuffling all cards
+// ----resets drawnCards to empty array
+// ----resets shuffledDeck to fullDeck array
+// ----shuffles deck
+
 module.exports = {fullDeck, deck};
