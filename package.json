@@ -12,6 +12,7 @@
     "jest": "^29.7.0"
   },
   "dependencies": {
+    "2---tarot-card-deck": "file:",
     "jest-environment-jsdom": "^29.7.0"
   }
 }
