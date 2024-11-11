@@ -9,6 +9,7 @@ const fullDeck = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09",
 
 let deck = {
     shuffledDeck: [],
+    drawnCards: [],
 }
 
 module.exports = {fullDeck, deck};

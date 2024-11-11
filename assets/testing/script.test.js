@@ -19,6 +19,9 @@ describe("deck elements exist", () => {
     test("deck object has suffledDeck element", () => {
         expect("shuffledDeck" in deck).toBe(true);
     });
+    test("deck objext has drawnCards element", () => {
+        expect("drawnCards" in deck).toBe(true);
+    });
 });
 
 // describe("functions to shuffle, draw and display cards work correctly", () => {
