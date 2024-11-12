@@ -32,5 +32,8 @@ describe("functions to shuffle, draw and display cards work correctly", () => {
     });
     test("shuffledDeck has 78 elements", () => {
         expect(deck.shuffledDeck).toHaveLength(78);
+    });    
+    test("drawCard pulls last card from deck", () => {
+        expect(deck.drawnCards[-1]).toEqual(lastElement[-1]);
     });
 }); 
