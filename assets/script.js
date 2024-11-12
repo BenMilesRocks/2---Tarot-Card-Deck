@@ -32,6 +32,10 @@ function drawCard(){
 // ----adds event listener to #draw-card-specific, passing card number back to function
 // ----pushes specific array number to drawCard function
 
+function drawSpecificCard(number){
+    deck.drawnCards.push(deck.shuffledDeck.splice(number, 1));
+};
+
 // displayCard ---- Function for displaying cards to play area
 // ----displays card based on cardDrawn
 // ----reads draw-options radio buttons to see if card should be normal, inverted or random
@@ -44,6 +48,7 @@ function drawCard(){
 
 function resetDeck(){
     deck.shuffledDeck = fullDeck;
+    deck.drawnCards = [];
 }
 
-module.exports = {fullDeck, deck, drawCard, resetDeck};
+module.exports = {fullDeck, deck, drawCard, resetDeck, drawSpecificCard};
