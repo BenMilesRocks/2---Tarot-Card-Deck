@@ -16,11 +16,17 @@ let deck = {
 // ----seperate function for firstShuffle, pulling fullDeck into shuffledDeck
 // ----shuffles existing shuffledDeck array, so as not to include drawnCards
 
+
+
 // drawCard ---- Function for drawing cards
 // ----adds cards to drawnCards
 // ----removes cards from shuffledDeck
 // ----sends cardDrawn variable to displayCard function
 // ----pushes length of shuffledDeck array to "max" value on number input
+
+function drawCard(){
+    deck.drawnCards.push(deck.shuffledDeck.slice(-1));
+};
 
 // drawSpecificCard ---- Function for drawing specific card
 // ----adds event listener to #draw-card-specific, passing card number back to function
@@ -36,4 +42,8 @@ let deck = {
 // ----resets shuffledDeck to fullDeck array
 // ----shuffles deck
 
-module.exports = {fullDeck, deck};
+function resetDeck(){
+    deck.shuffledDeck = fullDeck;
+}
+
+module.exports = {fullDeck, deck, drawCard, resetDeck};

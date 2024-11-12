@@ -2,7 +2,9 @@
  * @jest-environment jsdom
  */
 
-const {fullDeck, deck} = require("../script");
+const {fullDeck, deck, drawCard, resetDeck} = require("../script");
+
+let lastElement = fullDeck.slice(-1);
 
 beforeAll (() => {
     let fs = require("fs");
@@ -24,8 +26,11 @@ describe("deck elements exist", () => {
     });
 });
 
-// describe("functions to shuffle, draw and display cards work correctly", () => {
-//     test("shuffleDeck rearranges array order", () => {
-//         ;
-//     });
-// });
+describe("functions to shuffle, draw and display cards work correctly", () => {
+    beforeAll(() => {
+        resetDeck();
+    });
+    test("shuffledDeck has 78 elements", () => {
+        expect(deck.shuffledDeck).toHaveLength(78);
+    });
+}); 
