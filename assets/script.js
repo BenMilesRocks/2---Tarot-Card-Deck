@@ -33,7 +33,7 @@ function drawCard(){
 // ----pushes specific array number to drawCard function
 
 function drawSpecificCard(number){
-    deck.drawnCards.push(deck.shuffledDeck.splice(number, 1));
+    deck.drawnCards.push((deck.shuffledDeck.splice(number, 1))[0]);
 };
 
 // displayCard ---- Function for displaying cards to play area
