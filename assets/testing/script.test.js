@@ -71,7 +71,7 @@ describe("Test deckShuffle function", () => {
         resetDeck();
         deckShuffle(deck.shuffledDeck);
     });
-    test("shuffledDeck is not the same as fullDeck", () => {
+    test("shuffledDeck is not the same order as fullDeck", () => {
         expect(deck.shuffledDeck).not.toEqual(fullDeck);
     });
     test("shuffledDeck has same length as fullDeck", () => {
@@ -79,5 +79,23 @@ describe("Test deckShuffle function", () => {
     });
     test("shuffledDeck has same elements as fullDeck", () => {
         expect(deck.shuffledDeck).toEqual(expect.arrayContaining(fullDeck));;
+    });
+});
+
+describe("Test deckShuffle function after cards have been drawn", () => {
+    beforeAll(() => {
+        resetDeck();
+        testElement = [...deck.shuffledDeck]
+        drawCard();
+        deckShuffle(deck.shuffledDeck);
+    });
+    test("shuffledDeck has 77 elements", () => {
+        expect(deck.shuffledDeck).toHaveLength(77);
+    });
+    test("testElement has 78 elements", () => {
+        expect(testElement).toHaveLength(78);
+    });
+    test("shuffledDeck does not contain drawn card", () => {
+        expect(deck.shuffledDeck).not.toContain(deck.drawnCards[0]);
     });
 });

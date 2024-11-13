@@ -13,8 +13,7 @@ let deck = {
 }
 
 // deckShuffle ---- Function for shuffling deck
-// ----seperate function for firstShuffle, pulling fullDeck into shuffledDeck
-// ----shuffles existing shuffledDeck array, so as not to include drawnCards
+// ---- Shuffles the array passed to it, allowing it to be used multiple times without resetting the deck
 
 function deckShuffle(cards){
     let currentIndex = cards.length;
@@ -37,16 +36,17 @@ function deckShuffle(cards){
 // drawCard ---- Function for drawing cards
 // ----adds cards to drawnCards
 // ----removes cards from shuffledDeck
-// ----sends cardDrawn variable to displayCard function
-// ----pushes length of shuffledDeck array to "max" value on number input
+// ----sends cardDrawn variable to displayCard function **TO BE ADDED**
+// ----pushes length of shuffledDeck array to "max" value on number input **TO BE ADDED**
 
 function drawCard(){
     deck.drawnCards.push(deck.shuffledDeck.shift());
 };
 
 // drawSpecificCard ---- Function for drawing specific card
-// ----adds event listener to #draw-card-specific, passing card number back to function
-// ----pushes specific array number to drawCard function
+// ----adds event listener to #draw-card-specific, passing card number back to function **TO BE ADDED**
+// ----pushes specific array number to drawnCards, spliced from shuffledDeck
+// ----pushes length of shuffledDeck array to "max" value on number input **TO BE ADDED**
 
 function drawSpecificCard(number){
     deck.drawnCards.push((deck.shuffledDeck.splice(number, 1))[0]);
@@ -58,8 +58,8 @@ function drawSpecificCard(number){
 // ========inverted cards adds css class .inverted-card to element, to display upside down
 
 // resetDeck ---- Funtion for resetting the play area, reshuffling all cards
-// ----resets drawnCards to empty array
 // ----resets shuffledDeck to fullDeck array
+// ----resets drawnCards to empty array
 // ----shuffles deck
 
 function resetDeck(){
