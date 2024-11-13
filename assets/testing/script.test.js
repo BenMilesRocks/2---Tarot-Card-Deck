@@ -40,6 +40,12 @@ describe("Test drawSpecificCard functions", () => {
     test("drawSpecificCard draws defined value from deck", () => {
         expect(deck.drawnCards[0]).toEqual(fullDeck[10]);    
     });
+    test("shuffledDeck has 77 elements", () => {
+        expect(deck.shuffledDeck).toHaveLength(77);
+    });
+    test("drawSpecificCard removes card from shuffledDeck", () => {
+        expect(deck.shuffledDeck).not.toContain(deck.drawnCards[0]);    
+    });
 })
 
 describe("functions to shuffle, draw and display cards work correctly", () => {
