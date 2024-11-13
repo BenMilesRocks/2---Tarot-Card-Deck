@@ -65,6 +65,7 @@ function drawSpecificCard(number){
 function resetDeck(){
     deck.shuffledDeck = [...fullDeck];
     deck.drawnCards = [];
+    deckShuffle(deck.shuffledDeck);
 }
 
 module.exports = {fullDeck, deck, drawCard, resetDeck, drawSpecificCard, deckShuffle};

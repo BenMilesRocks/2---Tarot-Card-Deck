@@ -4,7 +4,7 @@
 
 const {fullDeck, deck, drawCard, resetDeck, drawSpecificCard, deckShuffle} = require("../script");
 
-let firstElement = fullDeck.slice(0, 1);
+let testElement;
 
 beforeAll (() => {
     let fs = require("fs");
@@ -35,10 +35,11 @@ describe("deck elements exist", () => {
 describe("Test drawSpecificCard function", () => {
     beforeAll(() => {
         resetDeck();
+        testElement = deck.shuffledDeck[10]
         drawSpecificCard(10);
     });
     test("drawSpecificCard draws defined value from deck", () => {
-        expect(deck.drawnCards[0]).toEqual(fullDeck[10]);    
+        expect(deck.drawnCards[0]).toEqual(testElement);    
     });
     test("shuffledDeck has 77 elements", () => {
         expect(deck.shuffledDeck).toHaveLength(77);
@@ -51,13 +52,14 @@ describe("Test drawSpecificCard function", () => {
 describe("Test drawCard function", () => {
     beforeAll(() => {
         resetDeck();
+        testElement = deck.shuffledDeck[0];
         drawCard();
     });
     test("shuffledDeck has 77 elements", () => {
         expect(deck.shuffledDeck).toHaveLength(77);
     });    
     test("drawCard pulls last card from deck", () => {
-        expect(deck.drawnCards).toEqual(firstElement);
+        expect(deck.drawnCards[0]).toEqual(testElement);
     });
     test("drawCard removes card from shuffledDeck", () => {
         expect(deck.shuffledDeck).not.toContain(deck.drawnCards[0]);    
@@ -74,5 +76,8 @@ describe("Test deckShuffle function", () => {
     });
     test("shuffledDeck has same length as fullDeck", () => {
         expect(deck.shuffledDeck.length).toEqual(fullDeck.length);
+    });
+    test("shuffledDeck has same elements as fullDeck", () => {
+        expect(deck.shuffledDeck).toEqual(expect.arrayContaining(fullDeck));;
     });
 });
