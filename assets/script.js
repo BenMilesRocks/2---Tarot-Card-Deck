@@ -25,7 +25,7 @@ let deck = {
 // ----pushes length of shuffledDeck array to "max" value on number input
 
 function drawCard(){
-    deck.drawnCards.push(deck.shuffledDeck.slice(-1));
+    deck.drawnCards.push(deck.shuffledDeck.shift());
 };
 
 // drawSpecificCard ---- Function for drawing specific card
@@ -47,7 +47,7 @@ function drawSpecificCard(number){
 // ----shuffles deck
 
 function resetDeck(){
-    deck.shuffledDeck = fullDeck;
+    deck.shuffledDeck = [...fullDeck];
     deck.drawnCards = [];
 }
 

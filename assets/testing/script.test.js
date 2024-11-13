@@ -4,7 +4,7 @@
 
 const {fullDeck, deck, drawCard, resetDeck, drawSpecificCard} = require("../script");
 
-let lastElement = fullDeck.slice(-1);
+let firstElement = fullDeck.slice(0, 1);
 
 beforeAll (() => {
     let fs = require("fs");
@@ -51,7 +51,7 @@ describe("functions to shuffle, draw and display cards work correctly", () => {
         expect(deck.shuffledDeck).toHaveLength(77);
     });    
     test("drawCard pulls last card from deck", () => {
-        expect(deck.drawnCards[0]).toEqual(lastElement);
+        expect(deck.drawnCards).toEqual(firstElement);
     });
     test("drawCard removes card from shuffledDeck", () => {
         expect(deck.shuffledDeck).not.toContain(deck.drawnCards[0]);    
