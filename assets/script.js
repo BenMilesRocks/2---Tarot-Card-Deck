@@ -16,6 +16,22 @@ let deck = {
 // ----seperate function for firstShuffle, pulling fullDeck into shuffledDeck
 // ----shuffles existing shuffledDeck array, so as not to include drawnCards
 
+function deckShuffle(cards){
+    let currentIndex = cards.length;
+
+  // While there remain elements to shuffle...
+  while (currentIndex != 0) {
+
+    // Pick a remaining element...
+    let randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [cards[currentIndex], cards[randomIndex]] = [
+      cards[randomIndex], cards[currentIndex]];
+  }
+}
+
 
 
 // drawCard ---- Function for drawing cards
@@ -51,4 +67,4 @@ function resetDeck(){
     deck.drawnCards = [];
 }
 
-module.exports = {fullDeck, deck, drawCard, resetDeck, drawSpecificCard};
+module.exports = {fullDeck, deck, drawCard, resetDeck, drawSpecificCard, deckShuffle};

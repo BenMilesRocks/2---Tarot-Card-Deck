@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const {fullDeck, deck, drawCard, resetDeck, drawSpecificCard} = require("../script");
+const {fullDeck, deck, drawCard, resetDeck, drawSpecificCard, deckShuffle} = require("../script");
 
 let firstElement = fullDeck.slice(0, 1);
 
@@ -32,7 +32,7 @@ describe("deck elements exist", () => {
     });
 });
 
-describe("Test drawSpecificCard functions", () => {
+describe("Test drawSpecificCard function", () => {
     beforeAll(() => {
         resetDeck();
         drawSpecificCard(10);
@@ -48,7 +48,7 @@ describe("Test drawSpecificCard functions", () => {
     });
 })
 
-describe("functions to shuffle, draw and display cards work correctly", () => {
+describe("Test drawCard function", () => {
     beforeAll(() => {
         resetDeck();
         drawCard();
@@ -64,5 +64,15 @@ describe("functions to shuffle, draw and display cards work correctly", () => {
     });
 });
 
-
-
+describe("Test deckShuffle function", () => {
+    beforeAll(() => {
+        resetDeck();
+        deckShuffle(deck.shuffledDeck);
+    });
+    test("shuffledDeck is not the same as fullDeck", () => {
+        expect(deck.shuffledDeck).not.toEqual(fullDeck);
+    });
+    test("shuffledDeck has same length as fullDeck", () => {
+        expect(deck.shuffledDeck.length).toEqual(fullDeck.length);
+    });
+});
