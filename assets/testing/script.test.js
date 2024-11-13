@@ -85,15 +85,39 @@ describe("Test deckShuffle function", () => {
 describe("Test deckShuffle function after cards have been drawn", () => {
     beforeAll(() => {
         resetDeck();
-        testElement = [...deck.shuffledDeck]
         drawCard();
+        testElement = [...deck.shuffledDeck]
         deckShuffle(deck.shuffledDeck);
     });
     test("shuffledDeck has 77 elements", () => {
         expect(deck.shuffledDeck).toHaveLength(77);
     });
-    test("testElement has 78 elements", () => {
-        expect(testElement).toHaveLength(78);
+    test("shuffledDeck is not the same order as testElement", () => {
+        expect(deck.shuffledDeck).not.toEqual(testElement);
+    });
+    test("shuffledDeck has same elements as testElement", () => {
+        expect(deck.shuffledDeck).toEqual(expect.arrayContaining(testElement));;
+    });
+    test("shuffledDeck does not contain drawn card", () => {
+        expect(deck.shuffledDeck).not.toContain(deck.drawnCards[0]);
+    });
+});
+
+describe("Test deckShuffle function after specific cards have been drawn", () => {
+    beforeAll(() => {
+        resetDeck();
+        drawSpecificCard(10);
+        testElement = [...deck.shuffledDeck]
+        deckShuffle(deck.shuffledDeck);
+    });
+    test("shuffledDeck has 77 elements", () => {
+        expect(deck.shuffledDeck).toHaveLength(77);
+    });
+    test("shuffledDeck is not the same order as testElement", () => {
+        expect(deck.shuffledDeck).not.toEqual(testElement);
+    });
+    test("shuffledDeck has same elements as testElement", () => {
+        expect(deck.shuffledDeck).toEqual(expect.arrayContaining(testElement));;
     });
     test("shuffledDeck does not contain drawn card", () => {
         expect(deck.shuffledDeck).not.toContain(deck.drawnCards[0]);
