@@ -1,3 +1,9 @@
+// --------------------------------------------------Event Listeners
+
+// ----deck shuffle button
+
+document.getElementById("deck-shuffle").addEventListener("click", deckShuffle(deck.shuffledDeck));
+
 const fullDeck = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09",
     "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
     "20", "21", "22", "23", "24", "25", "26", "27", "28", "29",
@@ -10,7 +16,7 @@ const fullDeck = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09",
 let deck = {
     shuffledDeck: [],
     drawnCards: [],
-}
+};
 
 // deckShuffle ---- Function for shuffling deck
 // ---- Shuffles the array passed to it, allowing it to be used multiple times without resetting the deck
@@ -22,7 +28,7 @@ function deckShuffle(cards){
         currentIndex--;
         [cards[currentIndex], cards[randomIndex]] = [cards[randomIndex], cards[currentIndex]];
   }
-}
+};
 
 
 
@@ -59,6 +65,6 @@ function resetDeck(){
     deck.shuffledDeck = [...fullDeck];
     deck.drawnCards = [];
     deckShuffle(deck.shuffledDeck);
-}
+};
 
 module.exports = {fullDeck, deck, drawCard, resetDeck, drawSpecificCard, deckShuffle};
