@@ -21,7 +21,13 @@ let deck = {
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("deck-shuffle-btn").addEventListener("click", deckShuffle(deck.shuffledDeck));
-    });
+});
+
+// ----draw card button
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("draw-card-btn").addEventListener("click", drawCard());
+});
 
 // deckShuffle ---- Function for shuffling deck
 // ---- Shuffles the array passed to it, allowing it to be used multiple times without resetting the deck

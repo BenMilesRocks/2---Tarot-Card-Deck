@@ -127,15 +127,19 @@ describe("Test deckShuffle function after specific cards have been drawn", () =>
 
 describe("Test deckShuffle function when using the deck-shuffle-btn element", () => {
     beforeAll(() => {
+        // sets a mock HTML site with a single button element in it
         document.body.innerHTML =
             '<div>' + +
-            '<button id="deck-shuffle-btn" />' +
+            '<button id="deck-shuffle-btn"></button>' +
             '</div>';
+        // reset the deck object
         resetDeck();
+        // takes a copy of the deck to run tests against
         testElement = [...deck.shuffledDeck];
+        // trigger a button click
         $("deck-shuffle-btn").trigger("click");
     });
-    test("shuffledDeck is not the same order as testElement", () => {
+    test("shuffledDeck is not the same order as testElement, showing that the deck has been shuffled", () => {
         expect(deck.shuffledDeck).not.toEqual(testElement);
     });
     test("shuffledDeck has same length as fullDeck", () => {
