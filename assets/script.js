@@ -1,8 +1,4 @@
-// --------------------------------------------------Event Listeners
-
-// ----deck shuffle button
-
-document.getElementById("deck-shuffle").addEventListener("click", deckShuffle(deck.shuffledDeck));
+const $ = require('jquery');
 
 const fullDeck = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09",
     "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
@@ -17,6 +13,15 @@ let deck = {
     shuffledDeck: [],
     drawnCards: [],
 };
+
+
+// --------------------------------------------------Event Listeners
+
+// ----deck shuffle button
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("deck-shuffle-btn").addEventListener("click", deckShuffle(deck.shuffledDeck));
+    });
 
 // deckShuffle ---- Function for shuffling deck
 // ---- Shuffles the array passed to it, allowing it to be used multiple times without resetting the deck

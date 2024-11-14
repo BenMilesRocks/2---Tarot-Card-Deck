@@ -3,6 +3,7 @@
  */
 
 const {fullDeck, deck, drawCard, resetDeck, drawSpecificCard, deckShuffle} = require("../script");
+const $ = require('jquery');
 
 let testElement;
 
@@ -123,3 +124,24 @@ describe("Test deckShuffle function after specific cards have been drawn", () =>
         expect(deck.shuffledDeck).not.toContain(deck.drawnCards[0]);
     });
 });
+
+describe("Test deckShuffle function when using the deck-shuffle-btn element", () => {
+    beforeAll(() => {
+        document.body.innerHTML =
+            '<div>' + +
+            '<button id="deck-shuffle-btn" />' +
+            '</div>';
+        resetDeck();
+        testElement = [...deck.shuffledDeck];
+        $("deck-shuffle-btn").trigger("click");
+    });
+    test("shuffledDeck is not the same order as testElement", () => {
+        expect(deck.shuffledDeck).not.toEqual(testElement);
+    });
+    test("shuffledDeck has same length as fullDeck", () => {
+        expect(deck.shuffledDeck.length).toEqual(fullDeck.length);
+    });
+    test("shuffledDeck has same elements as fullDeck", () => {
+        expect(deck.shuffledDeck).toEqual(expect.arrayContaining(fullDeck));;
+    });
+})
