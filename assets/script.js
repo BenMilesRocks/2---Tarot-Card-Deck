@@ -29,6 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("draw-card-btn").addEventListener("click", drawCard());
 });
 
+// ----draw specific card button
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("draw-card-specific").addEventListener("click", drawSpecificCard(document.getElementById("specific-card-index").value));
+});
+
 // deckShuffle ---- Function for shuffling deck
 // ---- Shuffles the array passed to it, allowing it to be used multiple times without resetting the deck
 
