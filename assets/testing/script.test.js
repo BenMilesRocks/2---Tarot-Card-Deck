@@ -132,12 +132,16 @@ describe("Test deckShuffle function when using the deck-shuffle-btn element", ()
             '<div>' + +
             '<button id="deck-shuffle-btn"></button>' +
             '</div>';
+        // adds event listener as per main file
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("deck-shuffle-btn").addEventListener("click", () => shuffleDeck(deck.shuffledDeck));
+        });
         // reset the deck object
         resetDeck();
         // takes a copy of the deck to run tests against
         testElement = [...deck.shuffledDeck];
         // trigger a button click
-        $("deck-shuffle-btn").trigger("click");
+        $("#deck-shuffle-btn").trigger("click");
     });
     test("shuffledDeck is not the same order as testElement, showing that the deck has been shuffled", () => {
         expect(deck.shuffledDeck).not.toEqual(testElement);

@@ -20,19 +20,19 @@ let deck = {
 // ----deck shuffle button
 
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("deck-shuffle-btn").addEventListener("click", deckShuffle(deck.shuffledDeck));
+    document.getElementById("deck-shuffle-btn").addEventListener("click", () => shuffleDeck(deck.shuffledDeck));
 });
 
 // ----draw card button
 
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("draw-card-btn").addEventListener("click", drawCard());
+    document.getElementById("draw-card-btn").addEventListener("click", () => drawCard());
 });
 
 // ----draw specific card button
 
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("draw-card-specific").addEventListener("click", drawSpecificCard(document.getElementById("specific-card-index").value));
+    document.getElementById("draw-card-specific").addEventListener("click", () => drawSpecificCard(document.getElementById("specific-card-index").value));
 });
 
 // deckShuffle ---- Function for shuffling deck
