@@ -65,6 +65,7 @@ function deckShuffle(cards){
 
 function drawCard(){
     deck.drawnCards.push(deck.shuffledDeck.shift());
+    displayCard();
 };
 
 // drawSpecificCard ---- Function for drawing specific card
@@ -73,7 +74,8 @@ function drawCard(){
 // ----pushes length of shuffledDeck array to "max" value on number input **TO BE ADDED**
 
 function drawSpecificCard(number){
-    deck.drawnCards.push((deck.shuffledDeck.splice(number, 1))[0]);
+    deck.drawnCards.push((deck.shuffledDeck.splice(number, 1))[0]);    
+    displayCard();
 };
 
 // displayCard ---- Function for displaying cards to play area
