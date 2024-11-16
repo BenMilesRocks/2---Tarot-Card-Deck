@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const {fullDeck, deck, drawCard, resetDeck, drawSpecificCard, deckShuffle} = require("../script");
+const {fullDeck, deck, drawCard, resetDeck, drawSpecificCard, deckShuffle, displayCard} = require("../script");
 const $ = require('jquery');
 
 let testElement;
@@ -83,6 +83,21 @@ describe("Test deckShuffle function", () => {
     });
 });
 
+describe("Test displayCard function", () => {
+    beforeAll(() => {
+        resetDeck();
+        drawCard();
+        testElement = [...deck.drawnCards]
+        displayCard();
+    });
+    test("img element should exist", () => {
+        expect(document.getElementById("card-1")).toBeTruthy();
+    });
+    test("img src should contain testElement", () => {
+        expect(document.getElementById("card-1").src).toContain(testElement[0]);
+    });
+});
+
 describe("Test deckShuffle function after cards have been drawn", () => {
     beforeAll(() => {
         resetDeck();
@@ -127,15 +142,6 @@ describe("Test deckShuffle function after specific cards have been drawn", () =>
 
 describe("Test deckShuffle function when using the deck-shuffle-btn element", () => {
     beforeAll(() => {
-        // sets a mock HTML site with a single button element in it
-        document.body.innerHTML =
-            '<div>' + +
-            '<button id="deck-shuffle-btn"></button>' +
-            '</div>';
-        // adds event listener as per main file
-        document.addEventListener("DOMContentLoaded", () => {
-            document.getElementById("deck-shuffle-btn").addEventListener("click", () => shuffleDeck(deck.shuffledDeck));
-        });
         // reset the deck object
         resetDeck();
         // takes a copy of the deck to run tests against

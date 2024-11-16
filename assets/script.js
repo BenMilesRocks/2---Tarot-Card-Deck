@@ -82,9 +82,10 @@ function drawSpecificCard(number){
 // ========inverted cards adds css class .inverted-card to element, to display upside down
 
 function displayCard(){
-    let cardSlot = deck.drawnCards.length;
+    let cardId = `card-${deck.drawnCards.length}`;
     let cardToShow = deck.drawnCards[deck.drawnCards.length -1];
-
+    let source = `/assets/images/${cardToShow}`;
+    document.getElementById(cardId).src = source;
 };
 
 // resetDeck ---- Funtion for resetting the play area, reshuffling all cards
@@ -98,4 +99,4 @@ function resetDeck(){
     deckShuffle(deck.shuffledDeck);
 };
 
-module.exports = {fullDeck, deck, drawCard, resetDeck, drawSpecificCard, deckShuffle};
+module.exports = {fullDeck, deck, drawCard, resetDeck, drawSpecificCard, deckShuffle, displayCard};
