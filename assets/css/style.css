@@ -45,6 +45,10 @@ body {
     width: 300px;
 }
 
+.inverted {
+    transform: rotate(180deg);
+}
+
 /* ------------------------- Draw Specific Card */
 
 .draw-specific {

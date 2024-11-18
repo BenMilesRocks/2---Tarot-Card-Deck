@@ -59,6 +59,9 @@ resetBtn.addEventListener("click", function(){
     resetDeck();
 });
 
+
+// --------------------------------------------------Functions
+
 // deckShuffle ---- Function for shuffling deck
 // ---- Shuffles the array passed to it, allowing it to be used multiple times without resetting the deck
 
@@ -107,9 +110,6 @@ function displayCard(){
 };
 
 // resetDeck ---- Funtion for resetting the play area, reshuffling all cards
-// ----resets shuffledDeck to fullDeck array
-// ----resets drawnCards to empty array
-// ----shuffles deck
 
 function resetDeck(){
     deck.shuffledDeck = [...fullDeck];
