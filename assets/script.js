@@ -74,6 +74,19 @@ function deckShuffle(cards){
   }
 };
 
+// invertTest ---- Function to check if card is inverted, pushing boolean value to displayCard function
+
+function invertTest(rule){
+    let output;
+    if (rule === "inverted"){
+        output = true;
+    } else if (rule === "normal"){
+        output = false;
+    } else {
+        output = true;
+    }
+    displayCard(output)
+};
 
 
 // drawCard ---- Function for drawing cards
@@ -84,7 +97,7 @@ function deckShuffle(cards){
 
 function drawCard(){
     deck.drawnCards.push(deck.shuffledDeck.shift());
-    displayCard();
+    invertTest("normal");
 };
 
 // drawSpecificCard ---- Function for drawing specific card
@@ -102,11 +115,14 @@ function drawSpecificCard(number){
 // ----reads draw-options radio buttons to see if card should be normal, inverted or random
 // ========inverted cards adds css class .inverted-card to element, to display upside down
 
-function displayCard(){
+function displayCard(inverted){
     let cardId = `card-${deck.drawnCards.length}`;
     let cardToShow = deck.drawnCards[deck.drawnCards.length -1];
     let source = `/assets/images/${cardToShow}`;
     document.getElementById(cardId).src = source;
+    if (inverted === true){
+        document.getElementById(cardId).classList.add("inverted");
+    }
 };
 
 // resetDeck ---- Funtion for resetting the play area, reshuffling all cards
