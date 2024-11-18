@@ -1,5 +1,3 @@
-const $ = require('jquery');
-
 const fullDeck = ["00-fool.jpg", "01-magician.jpg", "02-highpriestess.jpg", "03-empress.jpg", "04-emperor.jpg", "05-hierophant.jpg", 
     "06-lovers.jpg", "07-chariot.jpg", "08-strength.jpg", "09-hermit.jpg", 
     "10-wheeloffortune.jpg", "11-justice.jpg", "12-hangedman.jpg", "13-death.jpg", "14-temperance.jpg", 
@@ -25,22 +23,35 @@ let deck = {
 
 // --------------------------------------------------Event Listeners
 
-// ----deck shuffle button
+// Reset Deck on Load
 
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("deck-shuffle-btn").addEventListener("click", () => shuffleDeck(deck.shuffledDeck));
+    resetDeck();
 });
 
-// ----draw card button
+// // ----deck shuffle button
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("draw-card-btn").addEventListener("click", () => drawCard());
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//     document.getElementById("deck-shuffle-btn").addEventListener("click", () => shuffleDeck(deck.shuffledDeck));
+// });
 
-// ----draw specific card button
+// // ----draw card button
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("draw-card-specific").addEventListener("click", () => drawSpecificCard(document.getElementById("specific-card-index").value));
+// document.addEventListener("DOMContentLoaded", () => {
+//     document.getElementById("draw-card-btn").addEventListener("click", () => drawCard());
+// });
+
+// // ----draw specific card button
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     document.getElementById("draw-card-specific").addEventListener("click", () => drawSpecificCard(document.getElementById("specific-card-index").value));
+// });
+
+// document.getElementById("draw-card-btn").addEventListener("click", () => alert("Hello World"));
+btn = document.querySelector("#draw-card-btn");
+console.log("this is button ",btn)
+btn.addEventListener("click", function(){
+    drawCard();
 });
 
 // deckShuffle ---- Function for shuffling deck
