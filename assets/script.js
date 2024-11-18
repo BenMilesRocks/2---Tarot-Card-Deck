@@ -33,12 +33,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 shuffleBtn = document.querySelector("#deck-shuffle-btn");
 shuffleBtn.addEventListener("click", function(){
-    deckShuffle();
+    deckShuffle(deck.shuffledDeck);
 });
 
 
 // ----draw specific card button
 
+drawCardSpecific = document.querySelector("#draw-card-specific");
+drawCardSpecific.addEventListener("click", function(){
+    drawSpecificCard(document.getElementById("specific-card-index").value);
+});
 
 
 // ----draw card button
