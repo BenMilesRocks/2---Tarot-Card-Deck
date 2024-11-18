@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //     document.getElementById("deck-shuffle-btn").addEventListener("click", () => shuffleDeck(deck.shuffledDeck));
 // });
 
-// // ----draw card button
+
 
 // document.addEventListener("DOMContentLoaded", () => {
 //     document.getElementById("draw-card-btn").addEventListener("click", () => drawCard());
@@ -47,11 +47,18 @@ document.addEventListener("DOMContentLoaded", () => {
 //     document.getElementById("draw-card-specific").addEventListener("click", () => drawSpecificCard(document.getElementById("specific-card-index").value));
 // });
 
-// document.getElementById("draw-card-btn").addEventListener("click", () => alert("Hello World"));
-btn = document.querySelector("#draw-card-btn");
-console.log("this is button ",btn)
-btn.addEventListener("click", function(){
+// ----draw card button
+
+drawCardBtn = document.querySelector("#draw-card-btn");
+drawCardBtn.addEventListener("click", function(){
     drawCard();
+});
+
+// ----reset button
+
+resetBtn = document.querySelector("#reset");
+resetBtn.addEventListener("click", function(){
+    resetDeck();
 });
 
 // deckShuffle ---- Function for shuffling deck
@@ -110,6 +117,9 @@ function resetDeck(){
     deck.shuffledDeck = [...fullDeck];
     deck.drawnCards = [];
     deckShuffle(deck.shuffledDeck);
+    document.getElementById("card-1").src = "";
+    document.getElementById("card-2").src = "";
+    document.getElementById("card-3").src = "";
 };
 
 module.exports = {fullDeck, deck, drawCard, resetDeck, drawSpecificCard, deckShuffle, displayCard};
