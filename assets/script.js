@@ -29,23 +29,17 @@ document.addEventListener("DOMContentLoaded", () => {
     resetDeck();
 });
 
-// // ----deck shuffle button
+// ----deck shuffle button
 
-// document.addEventListener("DOMContentLoaded", () => {
-//     document.getElementById("deck-shuffle-btn").addEventListener("click", () => shuffleDeck(deck.shuffledDeck));
-// });
+shuffleBtn = document.querySelector("#deck-shuffle-btn");
+shuffleBtn.addEventListener("click", function(){
+    deckShuffle();
+});
 
 
+// ----draw specific card button
 
-// document.addEventListener("DOMContentLoaded", () => {
-//     document.getElementById("draw-card-btn").addEventListener("click", () => drawCard());
-// });
 
-// // ----draw specific card button
-
-// document.addEventListener("DOMContentLoaded", () => {
-//     document.getElementById("draw-card-specific").addEventListener("click", () => drawSpecificCard(document.getElementById("specific-card-index").value));
-// });
 
 // ----draw card button
 
