@@ -20,9 +20,20 @@ let deck = {
     drawnCards: [],
 };
 
+// --------------------------------------------------Event Listeners
+
+// Invert Deck Radio Button
+
 let invertSelect = "random";
 
-// --------------------------------------------------Event Listeners
+function displayRadioValue() {
+    var ele = document.getElementsByName("options");
+
+    for (i = 0; i < ele.length; i++) {
+        if (ele[i].checked)
+            invertSelect = ele[i].value;
+    }
+}
 
 // Reset Deck on Load
 
@@ -50,6 +61,7 @@ drawCardSpecific.addEventListener("click", function(){
 
 drawCardBtn = document.querySelector("#draw-card-btn");
 drawCardBtn.addEventListener("click", function(){
+    displayRadioValue();
     drawCard();
 });
 
@@ -60,19 +72,7 @@ resetBtn.addEventListener("click", function(){
     resetDeck();
 });
 
-// ----invert cards radio buttons
 
-let radios = document.querySelectorAll('input[type="radio"]');
-let options = document.querySelector('.options');
-
-options.addEventListener('click', function() {
-	for (let radio of radios) {
-		if (radio.checked) {
-			invertSelect = radio.value;
-		}
-	}
-    alert(invertSelect);
-});
 
 
 // --------------------------------------------------Functions
@@ -99,7 +99,7 @@ function invertTest(rule){
         output = false;
     } else {
         let random = Math.floor(Math.random() * 50);
-        if (random >= 43){
+        if (random >= 30){
             output = true;
         } else {
             output = false;
@@ -142,6 +142,8 @@ function displayCard(inverted){
     document.getElementById(cardId).src = source;
     if (inverted === true){
         document.getElementById(cardId).classList.add("inverted");
+    } else {
+        document.getElementById(cardId).classList.remove("inverted");
     }
 };
 
