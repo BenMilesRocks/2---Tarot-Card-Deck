@@ -20,6 +20,8 @@ let deck = {
     drawnCards: [],
 };
 
+let specificCardIndex = document.querySelector("#specific-card-index");
+
 // --------------------------------------------------Event Listeners
 
 // Invert Deck Radio Button
@@ -73,8 +75,6 @@ resetBtn.addEventListener("click", function(){
 });
 
 
-
-
 // --------------------------------------------------Functions
 
 // deckShuffle ---- Function for shuffling deck
@@ -110,30 +110,24 @@ function invertTest(rule){
 
 
 // drawCard ---- Function for drawing cards
-// ----adds cards to drawnCards
-// ----removes cards from shuffledDeck
-// ----sends cardDrawn variable to displayCard function **TO BE ADDED**
-// ----pushes length of shuffledDeck array to "max" value on number input **TO BE ADDED**
 
 function drawCard(){
     deck.drawnCards.push(deck.shuffledDeck.shift());
     invertTest(invertSelect);
+    specificCardIndex.setAttribute("max", `${deck.shuffledDeck.length}`);
+    specificCardIndex.value = 1;
 };
 
 // drawSpecificCard ---- Function for drawing specific card
-// ----adds event listener to #draw-card-specific, passing card number back to function **TO BE ADDED**
-// ----pushes specific array number to drawnCards, spliced from shuffledDeck
-// ----pushes length of shuffledDeck array to "max" value on number input **TO BE ADDED**
 
 function drawSpecificCard(number){
-    deck.drawnCards.push((deck.shuffledDeck.splice(number, 1))[0]);    
-    displayCard();
+    deck.drawnCards.push((deck.shuffledDeck.splice((number - 1), 1))[0]);    
+    invertTest(invertSelect);
+    specificCardIndex.setAttribute("max", `${deck.shuffledDeck.length}`);
+    specificCardIndex.value = 1;
 };
 
 // displayCard ---- Function for displaying cards to play area
-// ----displays card based on cardDrawn
-// ----reads draw-options radio buttons to see if card should be normal, inverted or random
-// ========inverted cards adds css class .inverted-card to element, to display upside down
 
 function displayCard(inverted){
     let cardId = `card-${deck.drawnCards.length}`;
