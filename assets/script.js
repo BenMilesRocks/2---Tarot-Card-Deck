@@ -20,6 +20,7 @@ let deck = {
     drawnCards: [],
 };
 
+let invertSelect = "random";
 
 // --------------------------------------------------Event Listeners
 
@@ -59,6 +60,20 @@ resetBtn.addEventListener("click", function(){
     resetDeck();
 });
 
+// ----invert cards radio buttons
+
+let radios = document.querySelectorAll('input[type="radio"]');
+let options = document.querySelector('.options');
+
+options.addEventListener('click', function() {
+	for (let radio of radios) {
+		if (radio.checked) {
+			invertSelect = radio.value;
+		}
+	}
+    alert(invertSelect);
+});
+
 
 // --------------------------------------------------Functions
 
@@ -83,7 +98,12 @@ function invertTest(rule){
     } else if (rule === "normal"){
         output = false;
     } else {
-        output = true;
+        let random = Math.floor(Math.random() * 50);
+        if (random >= 43){
+            output = true;
+        } else {
+            output = false;
+        }
     }
     displayCard(output)
 };
@@ -97,7 +117,7 @@ function invertTest(rule){
 
 function drawCard(){
     deck.drawnCards.push(deck.shuffledDeck.shift());
-    invertTest("normal");
+    invertTest(invertSelect);
 };
 
 // drawSpecificCard ---- Function for drawing specific card
