@@ -58,3 +58,12 @@ body {
     min-height: 300px;
     padding: 25px;
 }
+
+/* ------------------------- Draw Specific Card */
+
+.draw-card {
+    background-image: url(/assets/images/card-back.jpg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
