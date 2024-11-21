@@ -130,15 +130,21 @@ function drawSpecificCard(number){
 // displayCard ---- Function for displaying cards to play area
 
 function displayCard(inverted){
+    let cardSlotId = `card-slot-${deck.drawnCards.length}`
     let cardId = `card-${deck.drawnCards.length}`;
     let cardToShow = deck.drawnCards[deck.drawnCards.length -1];
     let source = `/assets/images/${cardToShow}`;
-    document.getElementById(cardId).src = source;
+    let slot = document.getElementById(cardSlotId);
+    let card = new Image();
+    card.src = source;
+    card.classList.add("card");
+    card.setAttribute("id", cardId)
     if (inverted === true){
-        document.getElementById(cardId).classList.add("inverted");
+        card.classList.add("inverted");
     } else {
-        document.getElementById(cardId).classList.remove("inverted");
+        card.classList.remove("inverted");
     }
+    slot.appendChild(card);
 };
 
 // resetDeck ---- Funtion for resetting the play area, reshuffling all cards
@@ -147,9 +153,9 @@ function resetDeck(){
     deck.shuffledDeck = [...fullDeck];
     deck.drawnCards = [];
     deckShuffle(deck.shuffledDeck);
-    document.getElementById("card-1").src = "";
-    document.getElementById("card-2").src = "";
-    document.getElementById("card-3").src = "";
+    document.querySelector("#card-1").remove();
+    document.querySelector("#card-2").remove();
+    document.querySelector("#card-3").remove();
 };
 
 module.exports = {fullDeck, deck, drawCard, resetDeck, drawSpecificCard, deckShuffle, displayCard};
