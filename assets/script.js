@@ -135,6 +135,7 @@ function displayCard(inverted){
     let cardToShow = deck.drawnCards[deck.drawnCards.length -1];
     let source = `/assets/images/${cardToShow}`;
     let slot = document.getElementById(cardSlotId);
+    let cardBackId = `card-${deck.drawnCards.length}-back`;
     let card = new Image();
     card.src = source;
     card.classList.add("card");
@@ -144,8 +145,14 @@ function displayCard(inverted){
     } else {
         card.classList.remove("inverted");
     }
+    let cardBack = new Image();
+    cardBack.src = "/assets/images/card-back.jpg";
+    cardBack.classList.add("card");
+    cardBack.setAttribute("id", cardBackId);
+    slot.appendChild(cardBack);
     slot.appendChild(card);
-    gsap.from(`#${cardId}`, {rotationY: "90deg", duration: 0.5});
+    gsap.to(`#${cardBackId}`, {rotationY: "180deg", duration: 0.5, delay: 0.25});
+    gsap.from(`#${cardId}`, {rotationY: "90deg", duration: 0.5, delay: 0.4});
 };
 
 // resetDeck ---- Funtion for resetting the play area, reshuffling all cards
