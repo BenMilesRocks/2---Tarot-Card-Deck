@@ -145,6 +145,7 @@ function displayCard(inverted){
         card.classList.remove("inverted");
     }
     slot.appendChild(card);
+    gsap.from(`#${cardId}`, {rotationY: "90deg", duration: 0.5});
 };
 
 // resetDeck ---- Funtion for resetting the play area, reshuffling all cards
