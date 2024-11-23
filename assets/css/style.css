@@ -5,6 +5,7 @@ body {
     background-size: cover;
     background-position: fixed;
     background-repeat: no-repeat;
+    height: 100vh;
 }
 
 /* ------------------------- Deck Controls */
@@ -31,16 +32,20 @@ body {
 .card-slot {
     border: 2px solid black;
     border-radius: 5%;
-    height: 500px;
-    width: 300px;
+    height: 16vw;
+    width: 10vw;
+    min-height: 300px;
+    min-width: 200px;
     background-color: rgba(210, 210, 210, 0.3);
 }
 
 /* ------------------------- Card Image Display */
 
 .card {
-    height: 500px;
-    width: 300px;
+    height: 16vw;
+    width: 10vw;
+    min-height: 300px;
+    min-width: 200px;
     backface-visibility: hidden;
     position: absolute;
 }
@@ -49,21 +54,37 @@ body {
     transform: rotate(180deg);
 }
 
+/* ------------------------- Draw Options */
+
+.draw-options {
+    height: 16vw;
+    width: 10vw;
+    min-height: 300px;
+    min-width: 200px;
+}
+
 /* ------------------------- Draw Specific Card */
 
 .draw-specific {
     border: 2px solid black;
     border-radius: 5%;
     background-color: rgba(210, 210, 210, 0.7);
+    height: 16vw;
+    width: 10vw;
     min-height: 300px;
+    min-width: 200px;
     padding: 25px;
 }
 
-/* ------------------------- Draw Specific Card */
+/* ------------------------- Draw Card */
 
 .draw-card {
     background-image: url(/assets/images/card-back.jpg);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    height: 16vw;
+    width: 10vw;
+    min-height: 300px;
+    min-width: 200px;
 }
