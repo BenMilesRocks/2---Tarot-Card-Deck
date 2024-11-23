@@ -55,6 +55,7 @@ shuffleBtn.addEventListener("click", function(){
 
 drawCardSpecific = document.querySelector("#draw-card-specific");
 drawCardSpecific.addEventListener("click", function(){
+    displayRadioValue();
     drawSpecificCard(document.getElementById("specific-card-index").value);
 });
 
