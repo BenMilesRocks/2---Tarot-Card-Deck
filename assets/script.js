@@ -172,6 +172,7 @@ function displayCard(inverted){
         // tests if card should be inverted
     if (inverted === true){
         card.classList.add("inverted");
+        card.setAttribute("alt", `${description}, inverted.`);
     }
 
         // creates img for back of card
