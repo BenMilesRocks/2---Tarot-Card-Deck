@@ -54,6 +54,12 @@ body {
     transform: rotate(180deg);
 }
 
+.zoomed {
+    height: 80vh;
+    width: 60vh;
+    position: static;
+}
+
 /* ------------------------- Draw Options */
 
 .draw-options {

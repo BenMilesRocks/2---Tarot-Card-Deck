@@ -75,7 +75,6 @@ resetBtn.addEventListener("click", function(){
     resetDeck();
 });
 
-
 // --------------------------------------------------Functions
 
 // deckShuffle ---- Function for shuffling deck
@@ -131,29 +130,43 @@ function drawSpecificCard(number){
 // displayCard ---- Function for displaying cards to play area
 
 function displayCard(inverted){
+        // takes values from DOM to create new img element
     let cardSlotId = `card-slot-${deck.drawnCards.length}`
     let cardId = `card-${deck.drawnCards.length}`;
     let cardToShow = deck.drawnCards[deck.drawnCards.length -1];
     let source = `/assets/images/${cardToShow}`;
     let slot = document.getElementById(cardSlotId);
     let cardBackId = `card-${deck.drawnCards.length}-back`;
+        // creates new img for front of card
     let card = new Image();
     card.src = source;
     card.classList.add("card");
     card.setAttribute("id", cardId)
+        // tests if card should be inverted
     if (inverted === true){
         card.classList.add("inverted");
-    } else {
-        card.classList.remove("inverted");
     }
+
+        // creates img for back of card
     let cardBack = new Image();
     cardBack.src = "/assets/images/card-back.jpg";
     cardBack.classList.add("card");
     cardBack.setAttribute("id", cardBackId);
+
+        // adds img elements to DOM
     slot.appendChild(cardBack);
     slot.appendChild(card);
+
+        // animates card flip
     gsap.to(`#${cardBackId}`, {rotationY: "180deg", duration: 0.5, delay: 0.25});
     gsap.from(`#${cardId}`, {rotationY: "90deg", duration: 0.5, delay: 0.4});
+
+        // adds event listener to new element
+    document.getElementById(cardId).addEventListener("click", function(){
+        console.log(this);
+        toggleZoom(this);
+    })
+    
 };
 
 // resetDeck ---- Funtion for resetting the play area, reshuffling all cards
@@ -166,5 +179,11 @@ function resetDeck(){
     document.querySelector("#card-2").remove();
     document.querySelector("#card-3").remove();
 };
+
+// toggleZoom ---- Enlarges a card that has been clicked on, making it fill the screen
+
+function toggleZoom(image){
+    image.classList.toggle("zoomed");
+}
 
 module.exports = {fullDeck, deck, drawCard, resetDeck, drawSpecificCard, deckShuffle, displayCard};
