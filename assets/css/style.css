@@ -54,12 +54,6 @@ body {
     transform: rotate(180deg);
 }
 
-.zoomed {
-    height: 80vh;
-    width: 60vh;
-    position: static;
-}
-
 /* ------------------------- Draw Options */
 
 .draw-options {
@@ -93,4 +87,17 @@ body {
     width: 10vw;
     min-height: 300px;
     min-width: 200px;
+}
+
+/* ------------------------- Zoomed Card */
+
+.zoomed {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -40vh;
+    margin-left: -25vh;
+    height: 80vh;
+    width: 50vh;
+    z-index: 3;
 }
