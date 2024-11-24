@@ -17,6 +17,7 @@ body {
 }
 
 /* ------------------------- Card Display Area */
+/* TO DO - Make responsive sizes */
 
 .card-display-area {
     min-height: 50vh;
@@ -28,6 +29,7 @@ body {
 }
 
 /* ------------------------- Card Slot */
+/* TO DO - Make responsive sizes */
 
 .card-slot {
     border: 2px solid black;
@@ -40,6 +42,7 @@ body {
 }
 
 /* ------------------------- Card Image Display */
+/* TO DO - Make responsive sizes */
 
 .card {
     height: 16vw;
@@ -50,11 +53,8 @@ body {
     position: absolute;
 }
 
-.inverted {
-    /* transform: rotate(180deg); */
-}
-
 /* ------------------------- Draw Options */
+/* TO DO - Make responsive sizes */
 
 .draw-options {
     height: 16vw;
@@ -64,6 +64,7 @@ body {
 }
 
 /* ------------------------- Draw Specific Card */
+/* TO DO - Make responsive sizes */
 
 .draw-specific {
     border: 2px solid black;
@@ -77,6 +78,7 @@ body {
 }
 
 /* ------------------------- Draw Card */
+/* TO DO - Make responsive sizes */
 
 .draw-card {
     background-image: url(/assets/images/card-back.jpg);

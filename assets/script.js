@@ -44,7 +44,6 @@ let deck = {
 let specificCardIndex = document.querySelector("#specific-card-index");
 
 // --------------------------------------------------Event Listeners
-// ----------***TO DO***------------ Add all listeners to DOMContentLoaded
 
 // Invert Deck Radio Button
 
@@ -209,9 +208,11 @@ function resetDeck(){
     deck.alt = [...fullDeckAlt];
     deck.drawnAlt = [];
     deckShuffle(deck.shuffledDeck, deck.alt);
-    document.querySelector("#card-1").remove();
-    document.querySelector("#card-2").remove();
-    document.querySelector("#card-3").remove();
+    let images = document.getElementsByTagName('img'); 
+    let l = images.length;
+    for (let i = 0; i < l; i++) { 
+        images[0].parentNode.removeChild(images[0]);
+    }
 };
 
 // toggleZoom ---- Enlarges a card that has been clicked on, making it fill the screen
