@@ -217,6 +217,11 @@ function resetDeck(){
 
 function toggleZoom(image){
     image.classList.toggle("zoomed");
+    if (image.classList.contains("zoomed") == true){
+        gsap.from(image, {scale: 0.5, duration: 1, ease: "power2.out"});
+    } else {
+        gsap.from(image, {scale: 1.5, duration: 1, ease: "power2.out"});
+    }
 }
 
 
