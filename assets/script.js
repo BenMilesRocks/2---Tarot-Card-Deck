@@ -231,5 +231,5 @@ function toggleZoom(image){
 }
 
 
-// ----------***TO DO***------------ Find out how to stop this throwing an error in the console
+var module = module || {};
 module.exports = {fullDeck, deck, drawCard, resetDeck, drawSpecificCard, deckShuffle, displayCard};
