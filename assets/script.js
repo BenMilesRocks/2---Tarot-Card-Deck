@@ -1,4 +1,4 @@
-// ----------***TO DO***------------ Add array for alt attributes, allowing screen readers to display the name of the card
+gsap.registerPlugin(Flip);
 
 const fullDeck = ["00-fool.jpg", "01-magician.jpg", "02-highpriestess.jpg", "03-empress.jpg", "04-emperor.jpg", "05-hierophant.jpg", 
     "06-lovers.jpg", "07-chariot.jpg", "08-strength.jpg", "09-hermit.jpg", 
@@ -188,6 +188,9 @@ function displayCard(inverted){
         // animates card flip
     gsap.to(`#${cardBackId}`, {rotationY: "180deg", duration: 0.5, delay: 0.25});
     gsap.from(`#${cardId}`, {rotationY: "90deg", duration: 0.5, delay: 0.4});
+    if (card.classList.contains("inverted")){
+        gsap.to(`#${cardId}`, {rotation: "180deg", duration: 0.5, delay: 1});
+    }
 
         // adds event listener to new element
     document.getElementById(cardId).addEventListener("click", function(){
@@ -212,16 +215,18 @@ function resetDeck(){
 };
 
 // toggleZoom ---- Enlarges a card that has been clicked on, making it fill the screen
-// ----------***TO DO***------------ Make this element move to center of screen
-// ----------***TO DO***------------ Add animation to shrink and grow
 
 function toggleZoom(image){
-    image.classList.toggle("zoomed");
-    if (image.classList.contains("zoomed") == true){
-        gsap.from(image, {scale: 0.5, duration: 1, ease: "power2.out"});
-    } else {
-        gsap.from(image, {scale: 1.5, duration: 1, ease: "power2.out"});
+    if (image.classList.contains("inverted")){
+        gsap.to(image, {rotation: "179deg", duration:0})
     }
+    let state = Flip.getState(image);
+    image.classList.toggle("zoomed");    
+    Flip.from(state, {duration: 1, spin: 1, zIndex: 4});
+    if (image.classList.contains("inverted")){
+        gsap.to(image, {rotation: "180deg", duration:0, delay: 1});
+    }
+     
 }
 
 
