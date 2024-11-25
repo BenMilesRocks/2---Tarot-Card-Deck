@@ -21,7 +21,8 @@ body {
 /* TO DO - Make responsive sizes */
 
 .card-display-area {
-    min-height: 50vh;
+    height: 50vh;
+    min-height: 150px;
 }
     
 .card-slot-wrapper {
@@ -36,8 +37,8 @@ body {
     border-radius: 5%;
     height: 15vw;
     width: 10vw;
-    min-height: 300px;
-    min-width: 200px;
+    min-height: 150px;
+    min-width: 100px;
     background-color: rgba(210, 210, 210, 0.3);
 }
 
@@ -46,10 +47,9 @@ body {
 
 .card {
     height: 15vw;
-    min-height: 300px;
     width: 10vw;
-    min-height: 300px;
-    min-width: 200px;
+    min-height: 150px;
+    min-width: 100px;
     backface-visibility: hidden;
     position: absolute;
 }
@@ -77,8 +77,8 @@ body {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    height: 16vw;
-    min-height: 300px;
+    height: 15vw;
+    min-height: 150px;
 }
 
 /* ------------------------- Zoomed Card */
