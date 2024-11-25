@@ -222,9 +222,9 @@ function toggleZoom(image){
     }
     let state = Flip.getState(image);
     image.classList.toggle("zoomed");    
-    Flip.from(state, {duration: 0.75, spin: 1, zIndex: 4, ease: "back.out"});
+    Flip.from(state, {duration: 0.75, spin: 1, zIndex: 4, ease: "power2.Out"});
     if (image.classList.contains("inverted")){
-        gsap.to(image, {rotation: "180deg", duration:0, delay: 0.75});
+        gsap.to(image, {rotation: "180deg", duration:0.1, delay: 0.75});
     }
      
 }

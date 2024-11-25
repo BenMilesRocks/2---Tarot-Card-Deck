@@ -6,8 +6,9 @@ body {
     background-position: fixed;
     background-repeat: no-repeat;
     height: 100vh;
-    overflow: hidden;
-    margin-bottom: 200px;
+    min-width: 375px;    
+    min-height: 667px;
+    overflow-block: hidden;
 }
 
 /* ------------------------- Deck Controls */
@@ -15,11 +16,10 @@ body {
 .deck-controls, 
 .draw-controls {
     margin-top: 25px;
-    margin-bottom: 25px;
+    margin-bottom: 10px; 
 }
 
 /* ------------------------- Card Display Area */
-/* TO DO - Make responsive sizes */
 
 .card-display-area {
     height: 50vh;
@@ -31,8 +31,18 @@ body {
     margin-bottom: auto;
 }
 
+/* @media screen and (max-width: 768px) {
+    .card-slot-wrapper {
+        margin-top: 25px;
+        margin-bottom: 30px;
+    }
+    .card-display-area {
+        height: 30vh;
+        min-height: 150px;
+    }
+  } */
+
 /* ------------------------- Card Slot */
-/* TO DO - Make responsive sizes */
 
 .card-slot {
     border: 2px solid black;
@@ -45,7 +55,7 @@ body {
 }
 
 /* ------------------------- Card Image Display */
-/* TO DO - Make responsive sizes */
+
 
 .card {
     height: 15vw;
@@ -56,13 +66,15 @@ body {
     position: absolute;
 }
 
-/* ------------------------- Draw Options */
-/* TO DO - Make responsive sizes */
+/* ------------------------- Draw Controls */
+
+.draw-controls {
+    z-index: 1;
+}
 
 
 
 /* ------------------------- Draw Specific Card */
-/* TO DO - Make responsive sizes */
 
 .draw-specific {
     border: 2px solid black;
@@ -72,7 +84,6 @@ body {
 }
 
 /* ------------------------- Draw Card */
-/* TO DO - Make responsive sizes */
 
 .draw-card {
     background-image: url(/assets/images/card-back.jpg);
@@ -89,9 +100,9 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -40vh;
-    margin-left: -25vh;
-    height: 80vh;
-    width: 50vh;
+    margin-top: -35vh;
+    margin-left: -23.3vh;
+    height: 70vh;
+    width: 46.7vh;
     z-index: 3;
 }
