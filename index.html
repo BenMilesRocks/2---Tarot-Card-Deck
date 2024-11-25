@@ -67,9 +67,9 @@
         <!-- buttons to draw cards -->
          <!-- **TO DO** Add responsive rules to shrink on smaller screens -->
 
-    <div class="row draw-controls g-0">
+    <div class="row fixed-bottom draw-controls g-0">
 
-        <div class="col-3 d-grid gap-2 mx-auto draw-options">
+        <div class="col-xs-6 col-md-4 col-lg-3 d-grid gap-2 mx-auto draw-options">
             <input type="radio" class="btn-check" name="options" id="option1" value="random" autocomplete="off" checked>
             <label class="btn btn-light" for="option1">Random</label>
 
@@ -80,11 +80,11 @@
             <label class="btn btn-light" for="option3">Inverted</label>
         </div>
 
-        <div class="col-3 mx-auto d-flex align-items-center justify-content-center draw-card">
+        <div class="col-3 mx-auto d-none d-lg-flex align-items-center justify-content-center draw-card">
             <button type="button" class="btn btn-lg btn-outline-light" id="draw-card-btn">Draw Card</button>
         </div>
 
-        <div class="col-3 d-grid gap-2 mx-auto draw-specific">
+        <div class="col-xs-6 col-md-4 col-lg-3 d-grid gap-2 mx-auto draw-specific">
             <div class="row">
                 <div class="col text-center">
                     <h5>Draw Specfic Card</h5>
