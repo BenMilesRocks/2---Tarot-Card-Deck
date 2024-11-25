@@ -31,17 +31,6 @@ body {
     margin-bottom: auto;
 }
 
-/* @media screen and (max-width: 768px) {
-    .card-slot-wrapper {
-        margin-top: 25px;
-        margin-bottom: 30px;
-    }
-    .card-display-area {
-        height: 30vh;
-        min-height: 150px;
-    }
-  } */
-
 /* ------------------------- Card Slot */
 
 .card-slot {
