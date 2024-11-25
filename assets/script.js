@@ -200,7 +200,6 @@ function displayCard(inverted){
 };
 
 // resetDeck ---- Funtion for resetting the play area, reshuffling all cards
-// ----------***TO DO***------------ Add way to check if element exists before removing it, preventing errors in console
 
 function resetDeck(){
     deck.shuffledDeck = [...fullDeck];
@@ -223,9 +222,9 @@ function toggleZoom(image){
     }
     let state = Flip.getState(image);
     image.classList.toggle("zoomed");    
-    Flip.from(state, {duration: 1, spin: 1, zIndex: 4});
+    Flip.from(state, {duration: 0.8, spin: 1, zIndex: 4, ease: "back.out"});
     if (image.classList.contains("inverted")){
-        gsap.to(image, {rotation: "180deg", duration:0, delay: 1});
+        gsap.to(image, {rotation: "180deg", duration:0, delay: 0.8});
     }
      
 }
