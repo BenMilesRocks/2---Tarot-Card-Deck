@@ -69,6 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
 shuffleBtn = document.querySelector("#deck-shuffle-btn");
 shuffleBtn.addEventListener("click", function(){
     deckShuffle(deck.shuffledDeck, deck.alt);
+    const shuffleAudio = new Audio("/assets/audio/cards-shuffle.mp3");
+    shuffleAudio.play();
 });
 
 
@@ -94,6 +96,8 @@ drawCardBtn.addEventListener("click", function(){
 resetBtn = document.querySelector("#reset");
 resetBtn.addEventListener("click", function(){
     resetDeck();
+    const shuffleAudio = new Audio("/assets/audio/cards-shuffle.mp3");
+    shuffleAudio.play();
 });
 
 // --------------------------------------------------Functions
