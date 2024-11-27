@@ -186,7 +186,7 @@ function displayCard(inverted){
         // creates img for back of card
     let cardBack = new Image();
     cardBack.src = "/assets/images/card-back.jpg";
-    cardBack.classList.add("card");
+    cardBack.classList.add("card", "card-back");
     cardBack.setAttribute("id", cardBackId);
 
         // adds img elements to DOM
@@ -222,9 +222,19 @@ function resetDeck(){
     let images = document.getElementsByTagName('img'); 
     let l = images.length;
     for (let i = 0; i < l; i++) { 
+        gsap.to(images[0].nodeName, {y: "40vh", opacity: "0", duration: 0.5, ease: "power2.out"});
+    }
+    // gsap.to("img", {y: "1000", duration: 0.5});
+    setTimeout(deleteImages, 1000);
+};
+
+function deleteImages(){
+    let images = document.getElementsByTagName('img'); 
+    let l = images.length;
+    for (let i = 0; i < l; i++) { 
         images[0].parentNode.removeChild(images[0]);
     }
-};
+}
 
 // toggleZoom ---- Enlarges a card that has been clicked on, making it fill the screen
 
