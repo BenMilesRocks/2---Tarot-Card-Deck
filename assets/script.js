@@ -229,7 +229,9 @@ function toggleZoom(image){
         gsap.to(image, {rotation: "179deg", duration:0})
     }
     let state = Flip.getState(image);
-    image.classList.toggle("zoomed");    
+    image.classList.toggle("zoomed");
+    const pickUp = new Audio("/assets/audio/pick-up-card.mp3")
+    pickUp.play();
     Flip.from(state, {duration: 0.75, spin: 1, zIndex: 4, ease: "power2.Out"});
     if (image.classList.contains("inverted")){
         gsap.to(image, {rotation: "180deg", duration:0.1, delay: 0.75});
