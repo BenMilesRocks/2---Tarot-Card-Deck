@@ -153,7 +153,10 @@ function drawSpecificCard(number){
 
 // displayCard ---- Function for displaying cards to play area
 
-const flipSound = new Audio("/assets/audio/card-flip.mp3")
+function turnSound(){
+    const slideSound = new Audio("/assets/audio/card-slide.mp3");
+    slideSound.play();
+} 
 
 function displayCard(inverted){
         // takes values from DOM to create new img element
@@ -187,10 +190,12 @@ function displayCard(inverted){
     slot.appendChild(card);
 
         // animates card flip
+    const flipSound = new Audio("/assets/audio/card-flip.mp3")
     flipSound.play();
     gsap.to(`#${cardBackId}`, {rotationY: "180deg", duration: 0.5, delay: 0.25});
     gsap.from(`#${cardId}`, {rotationY: "90deg", duration: 0.5, delay: 0.4});
     if (card.classList.contains("inverted")){
+        setTimeout(turnSound, 1000);
         gsap.to(`#${cardId}`, {rotation: "180deg", duration: 0.5, delay: 1});
     }
 
