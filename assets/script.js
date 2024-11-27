@@ -69,8 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 shuffleBtn = document.querySelector("#deck-shuffle-btn");
 shuffleBtn.addEventListener("click", function(){
     deckShuffle(deck.shuffledDeck, deck.alt);
-    const shuffleAudio = new Audio("/assets/audio/cards-shuffle.mp3");
-    shuffleAudio.play();
+    cardShuffleAnimation();
 });
 
 
@@ -214,17 +213,20 @@ function displayCard(inverted){
 // resetDeck ---- Funtion for resetting the play area, reshuffling all cards
 
 function resetDeck(){
+        // reset deck variables
     deck.shuffledDeck = [...fullDeck];
     deck.drawnCards = [];
     deck.alt = [...fullDeckAlt];
     deck.drawnAlt = [];
+        // shuffle deck
     deckShuffle(deck.shuffledDeck, deck.alt);
+        // animate cards resetting
     let images = document.getElementsByTagName('img'); 
     let l = images.length;
     for (let i = 0; i < l; i++) { 
         gsap.to(images[0].nodeName, {y: "40vh", opacity: "0", duration: 0.5, ease: "power2.out"});
     }
-    // gsap.to("img", {y: "1000", duration: 0.5});
+        // delete images
     setTimeout(deleteImages, 1000);
 };
 
@@ -251,6 +253,49 @@ function toggleZoom(image){
         gsap.to(image, {rotation: "180deg", duration:0.1, delay: 0.75});
     }
      
+}
+
+// Shuffle Card Animation
+
+// Create 3 images in card-slot-2 div
+// Images appear upwards
+// Move top and bottom images around x axis
+// Disappear downwards
+
+function cardShuffleAnimation(){
+    for (let i = 0; i < 3; i++){        
+        let card = new Image();
+        card.src = "/assets/images/card-back.jpg";
+        card.classList.add("card");
+        card.setAttribute("id", `shuffling-card-${i}`);
+        card.setAttribute("alt", "Cards being shuffled");
+        document.getElementById("card-slot-2").appendChild(card);
+    }
+    setTimeout(playShuffledCardSound, 500);    
+    gsap.to("#shuffling-card-1", {x: "30vw", duration: 0.25, delay: 0.5});
+    gsap.to("#shuffling-card-2", {x: "-30vw", duration:0.25, delay: 0.5});
+    gsap.to("#shuffling-card-2", {x: "30vw", duration: 0.25, delay: 0.75});
+    gsap.to("#shuffling-card-1", {x: "-30vw", duration:0.25, delay: 0.75});
+    gsap.to("#shuffling-card-1", {x: "30vw", duration: 0.25, delay: 1});
+    gsap.to("#shuffling-card-2", {x: "-30vw", duration:0.25, delay: 1});
+    gsap.to("#shuffling-card-1", {x: "0vw", duration: 0.25, delay: 1.25});
+    gsap.to("#shuffling-card-2", {x: "0vw", duration:0.25, delay: 1.25});
+    setTimeout(turnSound, 1900);
+    gsap.to("#shuffling-card-0", {y: "40vh", opacity: "0", duration: 0.9, ease: "power1.out", delay: 1.9});
+    gsap.to("#shuffling-card-1", {y: "40vh", opacity: "0", duration: 0.9, ease: "power2.out", delay: 1.9});
+    gsap.to("#shuffling-card-2", {y: "40vh", opacity: "0", duration: 0.9, ease: "power3.out", delay: 1.9});
+    setTimeout(endShuffleAnimation, 2800);
+}
+
+function playShuffledCardSound(){
+    const shuffleAudio = new Audio("/assets/audio/cards-shuffle.mp3");
+    shuffleAudio.play();
+}
+
+function endShuffleAnimation(){
+    document.getElementById("shuffling-card-0").remove();
+    document.getElementById("shuffling-card-1").remove();
+    document.getElementById("shuffling-card-3").remove();
 }
 
 
