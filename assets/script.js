@@ -61,7 +61,7 @@ function displayRadioValue() {
 // Reset Deck on Load
 
 document.addEventListener("DOMContentLoaded", () => {
-    resetDeck();
+    resetDeckFirst();
 });
 
 // ----deck shuffle button
@@ -95,8 +95,6 @@ drawCardBtn.addEventListener("click", function(){
 resetBtn = document.querySelector("#reset");
 resetBtn.addEventListener("click", function(){
     resetDeck();
-    const shuffleAudio = new Audio("/assets/audio/cards-shuffle.mp3");
-    shuffleAudio.play();
 });
 
 // --------------------------------------------------Functions
@@ -227,8 +225,26 @@ function resetDeck(){
         gsap.to(images[0].nodeName, {y: "40vh", opacity: "0", duration: 0.5, ease: "power2.out"});
     }
         // delete images
-    setTimeout(deleteImages, 1000);
+    setTimeout(deleteImages, 500);
+        // animate deck shuffling
+    setTimeout(cardShuffleAnimation, 550); 
+       
+    
 };
+
+// resetDeckFirst ---- Funtion for setting up the deck on loading. Prevents resetDeck from deleting images as they are being loaded, allowing for animations to play
+
+function resetDeckFirst(){
+    // reset deck variables
+deck.shuffledDeck = [...fullDeck];
+deck.drawnCards = [];
+deck.alt = [...fullDeckAlt];
+deck.drawnAlt = [];
+    // shuffle deck
+deckShuffle(deck.shuffledDeck, deck.alt);
+}
+
+// deleteImages ---- removes all <img> elements from the DOM, resetting the play area
 
 function deleteImages(){
     let images = document.getElementsByTagName('img'); 
@@ -255,12 +271,7 @@ function toggleZoom(image){
      
 }
 
-// Shuffle Card Animation
-
-// Create 3 images in card-slot-2 div
-// Images appear upwards
-// Move top and bottom images around x axis
-// Disappear downwards
+// cardShuffleAnimation ---- animates the deck being shuffled for the player, making it clear that the deck has been shuffled
 
 function cardShuffleAnimation(){
     for (let i = 0; i < 3; i++){        
@@ -271,6 +282,8 @@ function cardShuffleAnimation(){
         card.setAttribute("alt", "Cards being shuffled");
         document.getElementById("card-slot-2").appendChild(card);
     }
+    const pickUp = new Audio("/assets/audio/pick-up-card.mp3")
+    pickUp.play();
     gsap.from("#shuffling-card-0", {y: "40vh", opacity: "0", duration: 0.5, ease: "power3.out", zIndex: 4});
     gsap.from("#shuffling-card-1", {y: "40vh", opacity: "0", duration: 0.5, ease: "power3.out", zIndex: 4});
     gsap.from("#shuffling-card-2", {y: "40vh", opacity: "0", duration: 0.5, ease: "power3.out", zIndex: 4});
@@ -298,7 +311,7 @@ function playShuffledCardSound(){
 function endShuffleAnimation(){
     document.getElementById("shuffling-card-0").remove();
     document.getElementById("shuffling-card-1").remove();
-    document.getElementById("shuffling-card-3").remove();
+    document.getElementById("shuffling-card-2").remove();
 }
 
 
