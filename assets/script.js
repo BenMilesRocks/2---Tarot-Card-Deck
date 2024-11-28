@@ -271,6 +271,9 @@ function cardShuffleAnimation(){
         card.setAttribute("alt", "Cards being shuffled");
         document.getElementById("card-slot-2").appendChild(card);
     }
+    gsap.from("#shuffling-card-0", {y: "40vh", opacity: "0", duration: 0.5, ease: "power1.out"});
+    gsap.from("#shuffling-card-1", {y: "40vh", opacity: "0", duration: 0.5, ease: "power2.out"});
+    gsap.from("#shuffling-card-2", {y: "40vh", opacity: "0", duration: 0.5, ease: "power3.out"});
     setTimeout(playShuffledCardSound, 500);    
     gsap.to("#shuffling-card-1", {x: "30vw", duration: 0.25, delay: 0.5});
     gsap.to("#shuffling-card-2", {x: "-30vw", duration:0.25, delay: 0.5});
