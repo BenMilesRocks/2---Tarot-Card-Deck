@@ -9,6 +9,7 @@ body {
     min-width: 375px;    
     min-height: 667px;
     overflow-block: hidden;
+    overflow: hidden;
 }
 
 /* ------------------------- Deck Controls */
