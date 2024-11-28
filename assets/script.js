@@ -271,22 +271,22 @@ function cardShuffleAnimation(){
         card.setAttribute("alt", "Cards being shuffled");
         document.getElementById("card-slot-2").appendChild(card);
     }
-    gsap.from("#shuffling-card-0", {y: "40vh", opacity: "0", duration: 0.5, ease: "power1.out"});
-    gsap.from("#shuffling-card-1", {y: "40vh", opacity: "0", duration: 0.5, ease: "power2.out"});
-    gsap.from("#shuffling-card-2", {y: "40vh", opacity: "0", duration: 0.5, ease: "power3.out"});
+    gsap.from("#shuffling-card-0", {y: "40vh", opacity: "0", duration: 0.5, ease: "power3.out", zIndex: 4});
+    gsap.from("#shuffling-card-1", {y: "40vh", opacity: "0", duration: 0.5, ease: "power3.out", zIndex: 4});
+    gsap.from("#shuffling-card-2", {y: "40vh", opacity: "0", duration: 0.5, ease: "power3.out", zIndex: 4});
     setTimeout(playShuffledCardSound, 500);    
-    gsap.to("#shuffling-card-1", {x: "30vw", duration: 0.25, delay: 0.5});
-    gsap.to("#shuffling-card-2", {x: "-30vw", duration:0.25, delay: 0.5});
-    gsap.to("#shuffling-card-2", {x: "30vw", duration: 0.25, delay: 0.75});
-    gsap.to("#shuffling-card-1", {x: "-30vw", duration:0.25, delay: 0.75});
-    gsap.to("#shuffling-card-1", {x: "30vw", duration: 0.25, delay: 1});
-    gsap.to("#shuffling-card-2", {x: "-30vw", duration:0.25, delay: 1});
-    gsap.to("#shuffling-card-1", {x: "0vw", duration: 0.25, delay: 1.25});
-    gsap.to("#shuffling-card-2", {x: "0vw", duration:0.25, delay: 1.25});
+    gsap.to("#shuffling-card-1", {x: "30vw", duration: 0.25, delay: 0.5, zIndex: 4});
+    gsap.to("#shuffling-card-2", {x: "-30vw", duration:0.25, delay: 0.5, zIndex: 4});
+    gsap.to("#shuffling-card-2", {x: "30vw", duration: 0.25, delay: 0.75, zIndex: 4});
+    gsap.to("#shuffling-card-1", {x: "-30vw", duration:0.25, delay: 0.75, zIndex: 4});
+    gsap.to("#shuffling-card-1", {x: "30vw", duration: 0.25, delay: 1, zIndex: 4});
+    gsap.to("#shuffling-card-2", {x: "-30vw", duration:0.25, delay: 1, zIndex: 4});
+    gsap.to("#shuffling-card-1", {x: "0vw", duration: 0.25, delay: 1.25, zIndex: 4});
+    gsap.to("#shuffling-card-2", {x: "0vw", duration:0.25, delay: 1.25, zIndex: 4});
     setTimeout(turnSound, 1900);
-    gsap.to("#shuffling-card-0", {y: "40vh", opacity: "0", duration: 0.9, ease: "power1.out", delay: 1.9});
-    gsap.to("#shuffling-card-1", {y: "40vh", opacity: "0", duration: 0.9, ease: "power2.out", delay: 1.9});
-    gsap.to("#shuffling-card-2", {y: "40vh", opacity: "0", duration: 0.9, ease: "power3.out", delay: 1.9});
+    gsap.to("#shuffling-card-0", {y: "40vh", opacity: "0", duration: 0.9, ease: "power1.out", delay: 1.9, zIndex: 4});
+    gsap.to("#shuffling-card-1", {y: "40vh", opacity: "0", duration: 0.9, ease: "power2.out", delay: 1.9, zIndex: 4});
+    gsap.to("#shuffling-card-2", {y: "40vh", opacity: "0", duration: 0.9, ease: "power3.out", delay: 1.9, zIndex: 4});
     setTimeout(endShuffleAnimation, 2800);
 }
 
