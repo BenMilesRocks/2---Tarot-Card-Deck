@@ -36,20 +36,24 @@ body {
 .card-slot {
     border: 2px solid black;
     border-radius: 5%;
-    height: 15vw;
-    width: 10vw;
+    height: 22.5vw;
+    width: 15vw;
     min-height: 150px;
     min-width: 100px;
+    max-height: 450px;
+    max-width: 300px;
     background-color: rgba(210, 210, 210, 0.3);
 }
 
 /* ------------------------- Card Image Display */
 
 .card {
-    height: 15vw;
-    width: 10vw;
+    height: 22.5vw;
+    width: 15vw;
     min-height: 150px;
     min-width: 100px;
+    max-height: 450px;
+    max-width: 300px;
     backface-visibility: hidden;
     position: absolute;
 }
@@ -78,8 +82,9 @@ body {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    height: 15vw;
+    height: 22.5vw;
     min-height: 150px;
+    max-height: 450px;
 }
 
 /* ------------------------- Zoomed Card */
