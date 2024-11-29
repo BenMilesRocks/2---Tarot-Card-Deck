@@ -258,15 +258,18 @@ function deleteImages(){
 
 function toggleZoom(image){
     if (image.classList.contains("inverted")){
-        gsap.to(image, {rotation: "179deg", duration:0})
+        gsap.to(image, {rotation: "0deg", duration:0})
     }
     let state = Flip.getState(image);
     image.classList.toggle("zoomed");
     const pickUp = new Audio("/assets/audio/pick-up-card.mp3")
     pickUp.play();
-    Flip.from(state, {duration: 0.75, spin: 1, zIndex: 4, ease: "power2.Out"});
+    // Flip.from(state, {duration: 0.75, spin: 1, zIndex: 4, ease: "power2.Out"});
     if (image.classList.contains("inverted")){
-        gsap.to(image, {rotation: "180deg", duration:0.1, delay: 0.75});
+        Flip.from(state, {duration: 0.75, spin: 1.5, zIndex: 4, ease: "power2.Out"});
+        gsap.to(image, {rotation: "180deg", duration:0, delay: 0.75});
+    } else {
+        Flip.from(state, {duration: 0.75, spin: 1, zIndex: 4, ease: "power2.Out"});
     }
      
 }

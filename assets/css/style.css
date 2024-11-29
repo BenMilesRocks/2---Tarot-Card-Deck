@@ -6,7 +6,6 @@ body {
     background-position: fixed;
     background-repeat: no-repeat;
     height: 100vh;
-    width: 100vw;
     min-width: 375px;    
     min-height: 667px;
     overflow-block: hidden;
@@ -29,7 +28,7 @@ body {
 
 .card-display-area {
     height: 50vh;
-    min-height: 150px;
+    min-height: 21vw;
 }
     
 .card-slot-wrapper {
@@ -106,7 +105,7 @@ body {
     left: 50%;
     margin-top: -35vh;
     margin-left: -23.3vh;
-    height: 70vh;
-    width: 46.7vh;
+    min-height: 70vh;
+    min-width: 46.7vh;
     z-index: 3;
 }
