@@ -12,6 +12,10 @@ body {
     overflow: hidden;
 }
 
+.text-white {
+    color: #fafafa;
+}
+
 /* ------------------------- Deck Controls */
 
 .deck-controls, 
