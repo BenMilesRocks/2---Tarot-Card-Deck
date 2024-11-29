@@ -1,7 +1,7 @@
 /* ------------------------- Background Image */
 
 body {
-    background-image: url(/assets/images/blue-background.jpg);
+    background-image: url(assets/images/blue-background.jpg);
     background-size: cover;
     background-position: fixed;
     background-repeat: no-repeat;
@@ -83,7 +83,7 @@ body {
 /* ------------------------- Draw Card */
 
 .draw-card {
-    background-image: url(/assets/images/card-back.jpg);
+    background-image: url(assets/images/card-back.jpg);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;

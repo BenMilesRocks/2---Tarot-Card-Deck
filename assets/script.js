@@ -155,7 +155,7 @@ function drawSpecificCard(number){
 // displayCard ---- Function for displaying cards to play area
 
 function turnSound(){
-    const slideSound = new Audio("/assets/audio/card-slide.mp3");
+    const slideSound = new Audio("assets/audio/card-slide.mp3");
     slideSound.play();
 } 
 
@@ -182,7 +182,7 @@ function displayCard(inverted){
 
         // creates img for back of card
     let cardBack = new Image();
-    cardBack.src = "/assets/images/card-back.jpg";
+    cardBack.src = "assets/images/card-back.jpg";
     cardBack.classList.add("card", "card-back");
     cardBack.setAttribute("id", cardBackId);
 
@@ -191,7 +191,7 @@ function displayCard(inverted){
     slot.appendChild(card);
 
         // animates card flip
-    const flipSound = new Audio("/assets/audio/card-flip.mp3")
+    const flipSound = new Audio("assets/audio/card-flip.mp3")
     flipSound.play();
     gsap.to(`#${cardBackId}`, {rotationY: "180deg", duration: 0.5, delay: 0.25});
     gsap.from(`#${cardId}`, {rotationY: "90deg", duration: 0.5, delay: 0.4});
@@ -262,7 +262,7 @@ function toggleZoom(image){
     }
     let state = Flip.getState(image);
     image.classList.toggle("zoomed");
-    const pickUp = new Audio("/assets/audio/pick-up-card.mp3")
+    const pickUp = new Audio("assets/audio/pick-up-card.mp3")
     pickUp.play();
     // Flip.from(state, {duration: 0.75, spin: 1, zIndex: 4, ease: "power2.Out"});
     if (image.classList.contains("inverted")){
@@ -279,13 +279,13 @@ function toggleZoom(image){
 function cardShuffleAnimation(){
     for (let i = 0; i < 3; i++){        
         let card = new Image();
-        card.src = "/assets/images/card-back.jpg";
+        card.src = "assets/images/card-back.jpg";
         card.classList.add("card");
         card.setAttribute("id", `shuffling-card-${i}`);
         card.setAttribute("alt", "Cards being shuffled");
         document.getElementById("card-slot-2").appendChild(card);
     }
-    const pickUp = new Audio("/assets/audio/pick-up-card.mp3")
+    const pickUp = new Audio("assets/audio/pick-up-card.mp3")
     pickUp.play();
     gsap.from("#shuffling-card-0", {y: "40vh", opacity: "0", duration: 0.5, ease: "power3.out", zIndex: 4});
     gsap.from("#shuffling-card-1", {y: "40vh", opacity: "0", duration: 0.5, ease: "power3.out", zIndex: 4});
@@ -307,7 +307,7 @@ function cardShuffleAnimation(){
 }
 
 function playShuffledCardSound(){
-    const shuffleAudio = new Audio("/assets/audio/cards-shuffle.mp3");
+    const shuffleAudio = new Audio("assets/audio/cards-shuffle.mp3");
     shuffleAudio.play();
 }
 
