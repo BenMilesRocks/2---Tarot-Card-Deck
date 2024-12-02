@@ -210,26 +210,36 @@ function displayCard(inverted){
 
 // resetDeck ---- Funtion for resetting the play area, reshuffling all cards
 
+let resetInProgress = false;
+
 function resetDeck(){
         // reset deck variables
-    
-    deck.shuffledDeck = [...fullDeck];
-    deck.drawnCards = [];
-    deck.alt = [...fullDeckAlt];
-    deck.drawnAlt = [];
-        // shuffle deck
-    deckShuffle(deck.shuffledDeck, deck.alt);
-        // animate cards resetting
-    let images = document.getElementsByTagName('img'); 
-    let l = images.length;
-    for (let i = 0; i < l; i++) { 
-        images[i].classList.add("to-be-deleted");
-        gsap.to(images[0].nodeName, {y: "40vh", opacity: "0", duration: 0.5, ease: "power2.out"});
+    if (resetInProgress == true) {
+        return
+    } else {
+        resetInProgress = true;
+
+        
+        deck.shuffledDeck = [...fullDeck];
+        deck.drawnCards = [];
+        deck.alt = [...fullDeckAlt];
+        deck.drawnAlt = [];
+            // shuffle deck
+        deckShuffle(deck.shuffledDeck, deck.alt);
+            // animate cards resetting
+        let images = document.getElementsByTagName('img'); 
+        let l = images.length;
+        for (let i = 0; i < l; i++) { 
+            images[i].classList.add("to-be-deleted");
+            gsap.to(images[0].nodeName, {y: "40vh", opacity: "0", duration: 0.5, ease: "power2.out"});
+        }
+            // delete images
+        setTimeout(deleteImages, 500);
+            // animate deck shuffling
+        setTimeout(cardShuffleAnimation, 550); 
+
+        setTimeout(function() {resetInProgress = false}, 3351);
     }
-        // delete images
-    setTimeout(deleteImages, 500);
-        // animate deck shuffling
-    setTimeout(cardShuffleAnimation, 550); 
        
     
 };
@@ -278,34 +288,41 @@ function toggleZoom(image){
 
 // cardShuffleAnimation ---- animates the deck being shuffled for the player, making it clear that the deck has been shuffled
 
+let shuffleAnimationRunning = false;
+
 function cardShuffleAnimation(){
-    for (let i = 0; i < 3; i++){        
-        let card = new Image();
-        card.src = "assets/images/card-back.jpg";
-        card.classList.add("card");
-        card.setAttribute("id", `shuffling-card-${i}`);
-        card.setAttribute("alt", "Cards being shuffled");
-        document.getElementById("card-slot-2").appendChild(card);
+    if (shuffleAnimationRunning == true){
+        return
+    } else {shuffleAnimationRunning = true
+        for (let i = 0; i < 3; i++){        
+            let card = new Image();
+            card.src = "assets/images/card-back.jpg";
+            card.classList.add("card");
+            card.setAttribute("id", `shuffling-card-${i}`);
+            card.setAttribute("alt", "Cards being shuffled");
+            document.getElementById("card-slot-2").appendChild(card);
+        }
+        const pickUp = new Audio("assets/audio/pick-up-card.mp3")
+        pickUp.play();
+        gsap.from("#shuffling-card-0", {y: "40vh", opacity: "0", duration: 0.5, ease: "power3.out", zIndex: 4});
+        gsap.from("#shuffling-card-1", {y: "40vh", opacity: "0", duration: 0.5, ease: "power3.out", zIndex: 4});
+        gsap.from("#shuffling-card-2", {y: "40vh", opacity: "0", duration: 0.5, ease: "power3.out", zIndex: 4});
+        setTimeout(playShuffledCardSound, 500);    
+        gsap.to("#shuffling-card-1", {x: "30vw", duration: 0.25, delay: 0.5, zIndex: 4});
+        gsap.to("#shuffling-card-2", {x: "-30vw", duration:0.25, delay: 0.5, zIndex: 4});
+        gsap.to("#shuffling-card-2", {x: "30vw", duration: 0.25, delay: 0.75, zIndex: 4});
+        gsap.to("#shuffling-card-1", {x: "-30vw", duration:0.25, delay: 0.75, zIndex: 4});
+        gsap.to("#shuffling-card-1", {x: "30vw", duration: 0.25, delay: 1, zIndex: 4});
+        gsap.to("#shuffling-card-2", {x: "-30vw", duration:0.25, delay: 1, zIndex: 4});
+        gsap.to("#shuffling-card-1", {x: "0vw", duration: 0.25, delay: 1.25, zIndex: 4});
+        gsap.to("#shuffling-card-2", {x: "0vw", duration:0.25, delay: 1.25, zIndex: 4});
+        setTimeout(turnSound, 1900);
+        gsap.to("#shuffling-card-0", {y: "40vh", opacity: "0", duration: 0.9, ease: "power1.out", delay: 1.9, zIndex: 4});
+        gsap.to("#shuffling-card-1", {y: "40vh", opacity: "0", duration: 0.9, ease: "power2.out", delay: 1.9, zIndex: 4});
+        gsap.to("#shuffling-card-2", {y: "40vh", opacity: "0", duration: 0.9, ease: "power3.out", delay: 1.9, zIndex: 4});
+        setTimeout(endShuffleAnimation, 2800);
+        setTimeout(function() {shuffleAnimationRunning = false}, 2801);
     }
-    const pickUp = new Audio("assets/audio/pick-up-card.mp3")
-    pickUp.play();
-    gsap.from("#shuffling-card-0", {y: "40vh", opacity: "0", duration: 0.5, ease: "power3.out", zIndex: 4});
-    gsap.from("#shuffling-card-1", {y: "40vh", opacity: "0", duration: 0.5, ease: "power3.out", zIndex: 4});
-    gsap.from("#shuffling-card-2", {y: "40vh", opacity: "0", duration: 0.5, ease: "power3.out", zIndex: 4});
-    setTimeout(playShuffledCardSound, 500);    
-    gsap.to("#shuffling-card-1", {x: "30vw", duration: 0.25, delay: 0.5, zIndex: 4});
-    gsap.to("#shuffling-card-2", {x: "-30vw", duration:0.25, delay: 0.5, zIndex: 4});
-    gsap.to("#shuffling-card-2", {x: "30vw", duration: 0.25, delay: 0.75, zIndex: 4});
-    gsap.to("#shuffling-card-1", {x: "-30vw", duration:0.25, delay: 0.75, zIndex: 4});
-    gsap.to("#shuffling-card-1", {x: "30vw", duration: 0.25, delay: 1, zIndex: 4});
-    gsap.to("#shuffling-card-2", {x: "-30vw", duration:0.25, delay: 1, zIndex: 4});
-    gsap.to("#shuffling-card-1", {x: "0vw", duration: 0.25, delay: 1.25, zIndex: 4});
-    gsap.to("#shuffling-card-2", {x: "0vw", duration:0.25, delay: 1.25, zIndex: 4});
-    setTimeout(turnSound, 1900);
-    gsap.to("#shuffling-card-0", {y: "40vh", opacity: "0", duration: 0.9, ease: "power1.out", delay: 1.9, zIndex: 4});
-    gsap.to("#shuffling-card-1", {y: "40vh", opacity: "0", duration: 0.9, ease: "power2.out", delay: 1.9, zIndex: 4});
-    gsap.to("#shuffling-card-2", {y: "40vh", opacity: "0", duration: 0.9, ease: "power3.out", delay: 1.9, zIndex: 4});
-    setTimeout(endShuffleAnimation, 2800);
 }
 
 function playShuffledCardSound(){
