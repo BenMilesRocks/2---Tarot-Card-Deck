@@ -60,6 +60,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ==Buttons
 
+// ----tour button
+
+tourBtn = document.querySelector("#tour");
+tourBtn.addEventListener("click", function(){
+    introJs().start();
+});
+
 // ----reset button
 
 resetBtn = document.querySelector("#reset");

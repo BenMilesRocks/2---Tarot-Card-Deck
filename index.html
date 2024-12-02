@@ -9,8 +9,12 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/intro.js" integrity="sha512-f26fxKZJiF0AjutUaQHNJ5KnXSisqyUQ3oyfaoen2apB1wLa5ccW3lmtaRe2jdP5kh4LF2gAHP9xQbx7wYhU5w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/introjs.css" integrity="sha512-4OzqLjfh1aJa7M33b5+h0CSx0Q3i9Qaxlrr1T/Z+Vz+9zs5A7GM3T3MFKXoreghi3iDOSbkPMXiMBhFO7UBW/g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body class="d-flex flex-column">
+
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
@@ -24,7 +28,7 @@
                             <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Instructions</a>
+                            <a class="nav-link" id="tour">Take the Tour</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">More Resources</a>
@@ -38,19 +42,19 @@
     <!-- buttons to control the deck -->
     <div class="row g-0 deck-controls">
         <div class="col-3 gap-2 d-grid mx-auto">
-            <button type="button" class="btn btn-light" id="reset">Reset</button>
+            <button type="button" class="btn btn-light" id="reset" data-title="Reset Button" data-intro="This is the reset button">Reset</button>
         </div>
         <div class="col-3 d-none d-md-inline gap-2 mx-auto">
             <!-- empty div to space elements -->
         </div>
         <div class="col-3 gap-2 d-grid mx-auto">
-            <button type="button" class="btn btn-light" id="deck-shuffle-btn">Shuffle</button>
+            <button type="button" class="btn btn-light" id="deck-shuffle-btn" data-title="Shuffle Button" data-intro="This is the shuffle button">Shuffle</button>
         </div>
     </div>
 
         <!-- area to display cards -->
 
-    <div class="row g-0 card-display-area flex-fill" id="card-display-area">
+    <div class="row g-0 card-display-area flex-fill" id="card-display-area" data-title="Card Display Area" data-intro="This is where the cards are displayed">
         <div class="col-3 d-grid mx-auto card-slot-wrapper text-center">
             <div class="card-slot mx-auto" id="card-slot-1"></div>
         </div>
@@ -66,7 +70,7 @@
 
     <div class="row draw-controls g-0">
 
-        <div class="col-xs-6 col-md-4 col-lg-3 d-grid gap-2 mx-auto draw-options">
+        <div class="col-xs-6 col-md-4 col-lg-3 d-grid gap-2 mx-auto draw-options" data-title="Draw Controls" data-intro="These choose if the card is drawn normal, inverted or at random.">
             <input type="radio" class="btn-check" name="options" id="option1" value="random" autocomplete="off" checked>
             <label class="btn btn-light" for="option1">Random</label>
 
@@ -77,11 +81,11 @@
             <label class="btn btn-light" for="option3">Inverted</label>
         </div>
 
-        <div class="col-3 mx-auto d-none d-lg-flex align-items-center justify-content-center draw-card">
+        <div class="col-3 mx-auto d-none d-lg-flex align-items-center justify-content-center draw-card" data-title="Draw Card" data-intro="This draws the top card from the deck.">
             <button type="button" class="btn btn-lg btn-outline-light" id="draw-card-btn">Draw Card</button>
         </div>
 
-        <div class="col-xs-6 col-md-4 col-lg-3 d-grid gap-2 mx-auto draw-specific">
+        <div class="col-xs-6 col-md-4 col-lg-3 d-grid gap-2 mx-auto draw-specific" data-title="Draw Card" data-intro="This draws a specific card from the deck.">
             <div class="row">
                 <div class="col text-center">
                     <h5>Draw Specfic Card</h5>
