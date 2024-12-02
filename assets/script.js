@@ -212,6 +212,7 @@ function displayCard(inverted){
 
 function resetDeck(){
         // reset deck variables
+    
     deck.shuffledDeck = [...fullDeck];
     deck.drawnCards = [];
     deck.alt = [...fullDeckAlt];
@@ -222,6 +223,7 @@ function resetDeck(){
     let images = document.getElementsByTagName('img'); 
     let l = images.length;
     for (let i = 0; i < l; i++) { 
+        images[i].classList.add("to-be-deleted");
         gsap.to(images[0].nodeName, {y: "40vh", opacity: "0", duration: 0.5, ease: "power2.out"});
     }
         // delete images
@@ -247,7 +249,7 @@ deckShuffle(deck.shuffledDeck, deck.alt);
 // deleteImages ---- removes all <img> elements from the DOM, resetting the play area
 
 function deleteImages(){
-    let images = document.getElementsByTagName('img'); 
+    let images = document.getElementsByClassName("to-be-deleted"); 
     let l = images.length;
     for (let i = 0; i < l; i++) { 
         images[0].parentNode.removeChild(images[0]);
