@@ -1,5 +1,9 @@
 gsap.registerPlugin(Flip);
 
+// --------------------------------------------------Constants & objects
+
+// fullDeck - complete array of all cards in the deck, in order. References file names of relevant images 
+
 const fullDeck = ["00-fool.jpg", "01-magician.jpg", "02-highpriestess.jpg", "03-empress.jpg", "04-emperor.jpg", "05-hierophant.jpg", 
     "06-lovers.jpg", "07-chariot.jpg", "08-strength.jpg", "09-hermit.jpg", 
     "10-wheeloffortune.jpg", "11-justice.jpg", "12-hangedman.jpg", "13-death.jpg", "14-temperance.jpg", 
@@ -16,6 +20,8 @@ const fullDeck = ["00-fool.jpg", "01-magician.jpg", "02-highpriestess.jpg", "03-
     "65-swords-02.jpg", "66-swords-03.jpg", "67-swords-04.jpg", "68-swords-05.jpg", "69-swords-06.jpg",
     "70-swords-07.jpg", "71-swords-08.jpg", "72-swords-09.jpg", "73-swords-10.jpg", "74-swords-11.jpg", 
     "75-swords-12.jpg", "76-swords-13.jpg", "77-swords-14.jpg"];
+
+// fullDeckAlt - array describing of all cards in the deck, in order. Index matches fullDeck for ease of reference
 
 const fullDeckAlt = ["The Fool", "The Magician", "The High Priestess", "The Empress", "The Emperor", "The Hierophant", 
     "The Lovers", "The Chariot", "Strength", "The Hermit", 
@@ -34,6 +40,8 @@ const fullDeckAlt = ["The Fool", "The Magician", "The High Priestess", "The Empr
     "Seven of Swords", "Eight of Swords", "Nine of Swords", "Ten of Swords", "Page of Swords", 
     "Knight of Swords", "Queen of Swords", "King of Swords"];
 
+// deck object - an object containing the state of the cards in play. This allows for the object's attributes to be manipulated in place
+
 let deck = {
     shuffledDeck: [],
     alt: [],
@@ -41,11 +49,35 @@ let deck = {
     drawnAlt: [],
 };
 
-let specificCardIndex = document.querySelector("#specific-card-index");
 
 // --------------------------------------------------Event Listeners
 
-// Invert Deck Radio Button
+// On page load, runs resetDeckFirst function to ensure deck object is ready for play
+
+document.addEventListener("DOMContentLoaded", () => {
+    resetDeckFirst();
+});
+
+// ==Buttons
+
+// ----reset button
+
+resetBtn = document.querySelector("#reset");
+resetBtn.addEventListener("click", function(){
+    resetDeck();
+});
+
+// ----deck shuffle button
+
+shuffleBtn = document.querySelector("#deck-shuffle-btn");
+shuffleBtn.addEventListener("click", function(){
+    deckShuffle(deck.shuffledDeck, deck.alt);
+    cardShuffleAnimation();
+});
+
+let specificCardIndex = document.querySelector("#specific-card-index");
+
+// ----Invert Deck Radio Buttons
 
 let invertSelect = "random";
 
@@ -58,20 +90,13 @@ function displayRadioValue() {
     }
 }
 
-// Reset Deck on Load
+// ----draw card button
 
-document.addEventListener("DOMContentLoaded", () => {
-    resetDeckFirst();
+drawCardBtn = document.querySelector("#draw-card-btn");
+drawCardBtn.addEventListener("click", function(){
+    displayRadioValue();
+    drawCard();
 });
-
-// ----deck shuffle button
-
-shuffleBtn = document.querySelector("#deck-shuffle-btn");
-shuffleBtn.addEventListener("click", function(){
-    deckShuffle(deck.shuffledDeck, deck.alt);
-    cardShuffleAnimation();
-});
-
 
 // ----draw specific card button
 
@@ -82,22 +107,19 @@ drawCardSpecific.addEventListener("click", function(){
 });
 
 
-// ----draw card button
-
-drawCardBtn = document.querySelector("#draw-card-btn");
-drawCardBtn.addEventListener("click", function(){
-    displayRadioValue();
-    drawCard();
-});
-
-// ----reset button
-
-resetBtn = document.querySelector("#reset");
-resetBtn.addEventListener("click", function(){
-    resetDeck();
-});
-
 // --------------------------------------------------Functions
+
+// resetDeckFirst ---- Funtion for setting up the deck on loading. Prevents resetDeck from deleting images as they are being loaded, allowing for animations to play
+
+function resetDeckFirst(){
+    // reset deck variables
+deck.shuffledDeck = [...fullDeck];
+deck.drawnCards = [];
+deck.alt = [...fullDeckAlt];
+deck.drawnAlt = [];
+    // shuffle deck
+deckShuffle(deck.shuffledDeck, deck.alt);
+}
 
 // deckShuffle ---- Function for shuffling deck
 // ---- Shuffles the array passed to it, allowing it to be used multiple times without resetting the deck
@@ -112,6 +134,26 @@ function deckShuffle(cards, alt){
   }
 };
 
+// drawCard ---- Function for drawing the top card of the deck
+
+function drawCard(){
+    deck.drawnCards.push(deck.shuffledDeck.shift());
+    deck.drawnAlt.push(deck.alt.shift());
+    invertTest(invertSelect);
+    specificCardIndex.setAttribute("max", `${deck.shuffledDeck.length}`);
+    specificCardIndex.value = 1;
+};
+
+// drawSpecificCard ---- Function for drawing a specific card from the deck
+
+function drawSpecificCard(number){
+    deck.drawnCards.push((deck.shuffledDeck.splice((number - 1), 1))[0]); 
+    deck.drawnAlt.push((deck.alt.splice((number - 1), 1))[0]);       
+    invertTest(invertSelect);
+    specificCardIndex.setAttribute("max", `${deck.shuffledDeck.length}`);
+    specificCardIndex.value = 1;
+};
+
 // invertTest ---- Function to check if card is inverted, pushing boolean value to displayCard function
 
 function invertTest(rule){
@@ -121,6 +163,7 @@ function invertTest(rule){
     } else if (rule === "normal"){
         output = false;
     } else {
+        // randomises card status
         let random = Math.floor(Math.random() * 50);
         if (random >= 30){
             output = true;
@@ -131,33 +174,7 @@ function invertTest(rule){
     displayCard(output)
 };
 
-
-// drawCard ---- Function for drawing cards
-
-function drawCard(){
-    deck.drawnCards.push(deck.shuffledDeck.shift());
-    deck.drawnAlt.push(deck.alt.shift());
-    invertTest(invertSelect);
-    specificCardIndex.setAttribute("max", `${deck.shuffledDeck.length}`);
-    specificCardIndex.value = 1;
-};
-
-// drawSpecificCard ---- Function for drawing specific card
-
-function drawSpecificCard(number){
-    deck.drawnCards.push((deck.shuffledDeck.splice((number - 1), 1))[0]); 
-    deck.drawnAlt.push((deck.alt.splice((number - 1), 1))[0]);       
-    invertTest(invertSelect);
-    specificCardIndex.setAttribute("max", `${deck.shuffledDeck.length}`);
-    specificCardIndex.value = 1;
-};
-
 // displayCard ---- Function for displaying cards to play area
-
-function turnSound(){
-    const slideSound = new Audio("assets/audio/card-slide.mp3");
-    slideSound.play();
-} 
 
 function displayCard(inverted){
         // takes values from DOM to create new img element
@@ -191,8 +208,7 @@ function displayCard(inverted){
     slot.appendChild(card);
 
         // animates card flip
-    const flipSound = new Audio("assets/audio/card-flip.mp3")
-    flipSound.play();
+    flipSound();    
     gsap.to(`#${cardBackId}`, {rotationY: "180deg", duration: 0.5, delay: 0.25});
     gsap.from(`#${cardId}`, {rotationY: "90deg", duration: 0.5, delay: 0.4});
     if (card.classList.contains("inverted")){
@@ -230,7 +246,9 @@ function resetDeck(){
         let images = document.getElementsByTagName('img'); 
         let l = images.length;
         for (let i = 0; i < l; i++) { 
+            // marks cards for deletion
             images[i].classList.add("to-be-deleted");
+            // animation
             gsap.to(images[0].nodeName, {y: "40vh", opacity: "0", duration: 0.5, ease: "power2.out"});
         }
             // delete images
@@ -244,19 +262,7 @@ function resetDeck(){
     
 };
 
-// resetDeckFirst ---- Funtion for setting up the deck on loading. Prevents resetDeck from deleting images as they are being loaded, allowing for animations to play
-
-function resetDeckFirst(){
-    // reset deck variables
-deck.shuffledDeck = [...fullDeck];
-deck.drawnCards = [];
-deck.alt = [...fullDeckAlt];
-deck.drawnAlt = [];
-    // shuffle deck
-deckShuffle(deck.shuffledDeck, deck.alt);
-}
-
-// deleteImages ---- removes all <img> elements from the DOM, resetting the play area
+// deleteImages ---- removes all marked elements from the DOM, resetting the play area
 
 function deleteImages(){
     let images = document.getElementsByClassName("to-be-deleted"); 
@@ -266,6 +272,31 @@ function deleteImages(){
     }
 }
 
+// ------------------------------Audio Functions
+// Allows audio to be called multiple times, ensuring audio is always played even if an animation is in progress
+
+function pickUpSound(){
+    const pickUp = new Audio("assets/audio/pick-up-card.mp3")
+    pickUp.play();
+}
+
+function turnSound(){
+    const slideSound = new Audio("assets/audio/card-slide.mp3");
+    slideSound.play();
+} 
+
+function flipSound(){
+    const flipSound = new Audio("assets/audio/card-flip.mp3")
+    flipSound.play();
+}
+
+function playShuffledCardSound(){
+    const shuffleAudio = new Audio("assets/audio/cards-shuffle.mp3");
+    shuffleAudio.play();
+}
+
+// ------------------------------Animation Functions
+
 // toggleZoom ---- Enlarges a card that has been clicked on, making it fill the screen
 
 function toggleZoom(image){
@@ -274,8 +305,7 @@ function toggleZoom(image){
     }
     let state = Flip.getState(image);
     image.classList.toggle("zoomed");
-    const pickUp = new Audio("assets/audio/pick-up-card.mp3")
-    pickUp.play();
+    pickUpSound();
     // Flip.from(state, {duration: 0.75, spin: 1, zIndex: 4, ease: "power2.Out"});
     if (image.classList.contains("inverted")){
         Flip.from(state, {duration: 0.75, spin: 1.5, zIndex: 4, ease: "power2.Out"});
@@ -302,8 +332,7 @@ function cardShuffleAnimation(){
             card.setAttribute("alt", "Cards being shuffled");
             document.getElementById("card-slot-2").appendChild(card);
         }
-        const pickUp = new Audio("assets/audio/pick-up-card.mp3")
-        pickUp.play();
+        pickUpSound();
         gsap.from("#shuffling-card-0", {y: "40vh", opacity: "0", duration: 0.5, ease: "power3.out", zIndex: 4});
         gsap.from("#shuffling-card-1", {y: "40vh", opacity: "0", duration: 0.5, ease: "power3.out", zIndex: 4});
         gsap.from("#shuffling-card-2", {y: "40vh", opacity: "0", duration: 0.5, ease: "power3.out", zIndex: 4});
@@ -325,10 +354,7 @@ function cardShuffleAnimation(){
     }
 }
 
-function playShuffledCardSound(){
-    const shuffleAudio = new Audio("assets/audio/cards-shuffle.mp3");
-    shuffleAudio.play();
-}
+// endShuffleAnimation - removes img elements, preventing them from slowing down the page
 
 function endShuffleAnimation(){
     document.getElementById("shuffling-card-0").remove();
