@@ -56,26 +56,21 @@ let deck = {
 
 document.addEventListener("DOMContentLoaded", () => {
     resetDeckFirst();
+    introJs().setOptions({
+        steps: [{
+          title: 'Welcome',
+          intro: 'Welcome to the interactive Tarot Card Deck! Click "Take the Tour" in the menu above to learn how the app works.'
+        }]}).start();
 });
 
 // ==Buttons
 
 // ----tour button
 
-
-
 tourBtn = document.querySelector("#tour");
 tourBtn.addEventListener("click", function(){
     testScreenSize();
 });
-
-// WORKING HERE --- 
-// Add two tour functions
-// One for full screens, one for mobile
-// Add steps in here, rather than HTML
-
-
-
 
 // ----reset button
 
