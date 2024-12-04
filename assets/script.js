@@ -361,15 +361,14 @@ function resetDeck(){
         deck.drawnAlt = [];
             // shuffle deck
         deckShuffle(deck.shuffledDeck, deck.alt);
-            // animate cards resetting
+            // marks cards for deletion
         let images = document.getElementsByClassName('card-in-play'); 
         let l = images.length;
-        for (let i = 0; i < l; i++) { 
-            // marks cards for deletion
-            images[i].classList.add("to-be-deleted");
-            // animation
-            gsap.to(images[0].nodeName, {y: "40vh", opacity: "0", duration: 0.5, ease: "power2.out"});
+        for (let i = 0; i < l; i++) {             
+            images[i].classList.add("to-be-deleted");           
         }
+            // animates cards being removed
+        gsap.to(".to-be-deleted", {y: "40vh", opacity: "0", duration: 0.5, ease: "power2.out"})
             // delete images
         setTimeout(deleteImages, 500);
             // animate deck shuffling
