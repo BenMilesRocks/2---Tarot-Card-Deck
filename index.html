@@ -6,6 +6,7 @@
     <title>Tarot Card Deck | Home Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="assets/css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
@@ -28,7 +29,7 @@
                             <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="tour">Take the Tour</a>
+                            <a class="nav-link" href="#" id="tour">Take the Tour</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">More Resources</a>
@@ -42,19 +43,19 @@
     <!-- buttons to control the deck -->
     <div class="row g-0 deck-controls">
         <div class="col-3 gap-2 d-grid mx-auto">
-            <button type="button" class="btn btn-light" id="reset" data-title="Reset Button" data-intro="This is the reset button">Reset</button>
+            <button type="button" class="btn btn-light" id="reset">Reset</button>
         </div>
         <div class="col-3 d-none d-md-inline gap-2 mx-auto">
             <!-- empty div to space elements -->
         </div>
         <div class="col-3 gap-2 d-grid mx-auto">
-            <button type="button" class="btn btn-light" id="deck-shuffle-btn" data-title="Shuffle Button" data-intro="This is the shuffle button">Shuffle</button>
+            <button type="button" class="btn btn-light" id="deck-shuffle-btn">Shuffle</button>
         </div>
     </div>
 
         <!-- area to display cards -->
 
-    <div class="row g-0 card-display-area flex-fill" id="card-display-area" data-title="Card Display Area" data-intro="This is where the cards are displayed">
+    <div class="row g-0 card-display-area flex-fill" id="card-display-area">
         <div class="col-3 d-grid mx-auto card-slot-wrapper text-center">
             <div class="card-slot mx-auto" id="card-slot-1"></div>
         </div>
@@ -70,7 +71,7 @@
 
     <div class="row draw-controls g-0">
 
-        <div class="col-xs-6 col-md-4 col-lg-3 d-grid gap-2 mx-auto draw-options" data-title="Draw Controls" data-intro="These choose if the card is drawn normal, inverted or at random.">
+        <div class="col-xs-6 col-md-4 col-lg-3 d-grid gap-2 mx-auto draw-options">
             <input type="radio" class="btn-check" name="options" id="option1" value="random" autocomplete="off" checked>
             <label class="btn btn-light" for="option1">Random</label>
 
@@ -81,11 +82,11 @@
             <label class="btn btn-light" for="option3">Inverted</label>
         </div>
 
-        <div class="col-3 mx-auto d-none d-lg-flex align-items-center justify-content-center draw-card" data-title="Draw Card" data-intro="This draws the top card from the deck.">
+        <div class="col-3 mx-auto d-none d-lg-flex align-items-center justify-content-center draw-card">
             <button type="button" class="btn btn-lg btn-outline-light" id="draw-card-btn">Draw Card</button>
         </div>
 
-        <div class="col-xs-6 col-md-4 col-lg-3 d-grid gap-2 mx-auto draw-specific" data-title="Draw Card" data-intro="This draws a specific card from the deck.">
+        <div class="col-xs-6 col-md-4 col-lg-3 d-grid gap-2 mx-auto draw-specific">
             <div class="row">
                 <div class="col text-center">
                     <h5>Draw Specfic Card</h5>

@@ -62,10 +62,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ----tour button
 
+
+
 tourBtn = document.querySelector("#tour");
 tourBtn.addEventListener("click", function(){
-    introJs().start();
+    testScreenSize();
 });
+
+// WORKING HERE --- 
+// Add two tour functions
+// One for full screens, one for mobile
+// Add steps in here, rather than HTML
+
+
+
 
 // ----reset button
 
@@ -127,6 +137,73 @@ deck.drawnAlt = [];
     // shuffle deck
 deckShuffle(deck.shuffledDeck, deck.alt);
 }
+
+// testScreenSize ---- checks if screen is large enough to display Draw Card button, then runs appropriate IntroJS script
+
+function testScreenSize(){    
+    if (window.matchMedia("(max-width: 992px)").matches){
+        runMobileTour();
+    } else {
+        runTour();
+    }
+}
+
+// Full tour for large screens
+
+function runTour(){
+    introJs().addSteps([{
+        element: document.querySelectorAll('#reset')[0],
+        title: "Reset Button",
+        intro: "This is the reset button",
+    }]).addSteps([{
+        element: document.querySelectorAll('#deck-shuffle-btn')[0],
+        title: "Shuffle Button",
+        intro: "This is the shuffle button",
+    }]).addSteps([{
+        element: document.querySelectorAll('#card-display-area')[0],
+        title: "Card Display Area",
+        intro: "This is where the cards are displayed",
+    }]).addSteps([{
+        element: document.querySelectorAll('.draw-options')[0],
+        title: "Draw Controls",
+        intro: "These choose if the card is drawn normal, inverted or at random.",
+    }]).addSteps([{
+        element: document.querySelectorAll('.draw-card')[0],
+        title: "Draw Card",
+        intro: "Draws the top card from the deck",
+    }]).addSteps([{
+        element: document.querySelectorAll('.draw-specific')[0],
+        title: "Draw Specific Card",
+        intro: "This draws a specific card from the deck.",
+    }]).start();
+}
+
+// Limited tour for Mobile devices
+
+function runMobileTour(){
+    introJs().addSteps([{
+        element: document.querySelectorAll('#reset')[0],
+        title: "Reset Button",
+        intro: "This is the reset button",
+    }]).addSteps([{
+        element: document.querySelectorAll('#deck-shuffle-btn')[0],
+        title: "Shuffle Button",
+        intro: "This is the shuffle button",
+    }]).addSteps([{
+        element: document.querySelectorAll('#card-display-area')[0],
+        title: "Card Display Area",
+        intro: "This is where the cards are displayed",
+    }]).addSteps([{
+        element: document.querySelectorAll('.draw-options')[0],
+        title: "Draw Controls",
+        intro: "These choose if the card is drawn normal, inverted or at random.",
+    }]).addSteps([{
+        element: document.querySelectorAll('.draw-specific')[0],
+        title: "Draw Specific Card",
+        intro: "This draws a specific card from the deck.",
+    }]).start();
+}
+
 
 // deckShuffle ---- Function for shuffling deck
 // ---- Shuffles the array passed to it, allowing it to be used multiple times without resetting the deck
@@ -232,6 +309,7 @@ function displayCard(inverted){
 };
 
 // resetDeck ---- Funtion for resetting the play area, reshuffling all cards
+// TO DO - Change how cards are marked for deletion (give elements a new class "display-cards", then mark these elements) to stop reset stopping Shuffle animation
 
 let resetInProgress = false;
 
