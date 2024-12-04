@@ -306,7 +306,7 @@ function displayCard(inverted){
         // creates new img for front of card
     let card = new Image();
     card.src = source;
-    card.classList.add("card");
+    card.classList.add("card", "card-in-play");
     card.setAttribute("id", cardId);
     card.setAttribute("alt", description);
         // tests if card should be inverted
@@ -318,7 +318,7 @@ function displayCard(inverted){
         // creates img for back of card
     let cardBack = new Image();
     cardBack.src = "assets/images/card-back.jpg";
-    cardBack.classList.add("card", "card-back");
+    cardBack.classList.add("card", "card-back", "card-in-play");
     cardBack.setAttribute("id", cardBackId);
 
         // adds img elements to DOM
@@ -362,7 +362,7 @@ function resetDeck(){
             // shuffle deck
         deckShuffle(deck.shuffledDeck, deck.alt);
             // animate cards resetting
-        let images = document.getElementsByTagName('img'); 
+        let images = document.getElementsByClassName('card-in-play'); 
         let l = images.length;
         for (let i = 0; i < l; i++) { 
             // marks cards for deletion
