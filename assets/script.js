@@ -134,6 +134,7 @@ deckShuffle(deck.shuffledDeck, deck.alt);
 }
 
 // testScreenSize ---- checks if screen is large enough to display Draw Card button, then runs appropriate IntroJS script
+//  TO DO - Add functions to reset deck & draw cards before tour, and reset deck after tour is finished
 
 function testScreenSize(){    
     if (window.matchMedia("(max-width: 992px)").matches){
