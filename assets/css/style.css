@@ -109,3 +109,26 @@ body {
     min-width: 46.7vh;
     z-index: 3;
 }
+
+/* ------------------------- 404 Page */
+
+.error-wrapper {
+    height: 70%;
+    margin-top: 2.5%;
+    margin-left: 15%;
+    margin-right: 15%;
+    border: 2px solid black;
+    border-radius: 1.5%;
+    background-color: rgba(210, 210, 210, 0.7);
+}
+
+.error-header,
+.error-text,
+.error-link {
+    height: 30%;
+    margin-top: 15px;
+}
+
+.error-body {
+    overflow: auto;
+}

@@ -7,7 +7,7 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <title>Tarot Card Deck | 404 - Page not found</title>
 </head>
-<body>
+<body class="error-body">
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
@@ -21,7 +21,7 @@
                             <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Instructions</a>
+                            <a class="nav-link" href="#" id="tour">Take the Tour</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">More Resources</a>
@@ -31,21 +31,22 @@
             </div>
         </nav>
     </header>
-
-    <div class="row">
-        <div class="col text-center text-white">
-            <h1>Woops!</h1>
-            <h3>404 - Error, page not found</h3>
+    <div class="error-wrapper">
+        <div class="row g-0 error-header">
+            <div class="col text-center">
+                <h1>Woops!</h1>
+                <h3>404 - Error, page not found</h3>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col text-center text-white">
-            <p>Looks like that page doesn't exist! Click the link below to go back to the home page.</p>
+        <div class="row g-0 error-text">
+            <div class="col text-center">
+                <p>Looks like that page doesn't exist! Click the link below to go back to the home page.</p>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col text-center">
-            <a href="index.html" class="btn btn-light" role="button">Go back to Home Page</a>
+        <div class="row g-0 error-link">
+            <div class="col text-center">
+                <a href="index.html" class="btn btn-light" role="button">Go back to Home Page</a>
+            </div>
         </div>
     </div>
 </body>
