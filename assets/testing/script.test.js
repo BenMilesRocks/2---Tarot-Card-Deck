@@ -4,6 +4,10 @@
 
 const {fullDeck, deck, drawCard, resetDeck, drawSpecificCard, deckShuffle, displayCard} = require("../script");
 const $ = require('jquery');
+const gsap = require('gsap');
+const Flip = require('gsap/Flip');
+
+jest.mock('gsap');
 
 let testElement;
 
