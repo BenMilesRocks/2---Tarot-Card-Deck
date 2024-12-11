@@ -7,7 +7,7 @@ const $ = require('jquery');
 const gsap = require('gsap');
 const Flip = require('gsap/Flip');
 
-jest.mock('../script.js');
+jest.mock('gsap');
 
 let testElement;
 
