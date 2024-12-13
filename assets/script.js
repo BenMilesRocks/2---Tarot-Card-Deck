@@ -265,13 +265,35 @@ function drawCard(){
 
 // drawSpecificCard ---- Function for drawing a specific card from the deck
 
+
+
 function drawSpecificCard(number){
-    deck.drawnCards.push((deck.shuffledDeck.splice((number - 1), 1))[0]); 
-    deck.drawnAlt.push((deck.alt.splice((number - 1), 1))[0]);       
-    invertTest(invertSelect);
-    specificCardIndex.setAttribute("max", `${deck.shuffledDeck.length}`);
-    specificCardIndex.value = 1;
+    if (number > deck.shuffledDeck.length) {
+        deckAlert(number);
+    } else {
+        deck.drawnCards.push((deck.shuffledDeck.splice((number - 1), 1))[0]); 
+        deck.drawnAlt.push((deck.alt.splice((number - 1), 1))[0]);       
+        invertTest(invertSelect);
+        specificCardIndex.setAttribute("max", `${deck.shuffledDeck.length}`);
+        specificCardIndex.value = 1;
+    }
 };
+
+// deckAlert ---- Creates warning message when drawSpecificCard is out of range
+
+const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+
+function deckAlert(number) {
+    const wrapper = document.createElement('div')
+    wrapper.innerHTML = [
+        `<div class="alert alert-danger alert-dismissible text-center" role="alert">`,
+        `   <div><strong>WARNING!</strong>You cannot draw card number ${number}! There are only ${deck.shuffledDeck.length} cards in the deck!</div>`,
+        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+        '</div>'
+    ].join('')
+
+    alertPlaceholder.append(wrapper)
+}
 
 // invertTest ---- Function to check if card is inverted, pushing boolean value to displayCard function
 
