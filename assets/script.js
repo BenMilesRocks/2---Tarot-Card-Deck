@@ -67,21 +67,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ----tour button
 
-tourBtn = document.querySelector("#tour");
+let tourBtn = document.querySelector("#tour");
 tourBtn.addEventListener("click", function(){
     testScreenSize();
 });
 
 // ----reset button
 
-resetBtn = document.querySelector("#reset");
+let resetBtn = document.querySelector("#reset");
 resetBtn.addEventListener("click", function(){
     resetDeck();
 });
 
 // ----deck shuffle button
 
-shuffleBtn = document.querySelector("#deck-shuffle-btn");
+let shuffleBtn = document.querySelector("#deck-shuffle-btn");
 shuffleBtn.addEventListener("click", function(){
     deckShuffle(deck.shuffledDeck, deck.alt);
     cardShuffleAnimation();
@@ -104,7 +104,7 @@ function displayRadioValue() {
 
 // ----draw card button
 
-drawCardBtn = document.querySelector("#draw-card-btn");
+let drawCardBtn = document.querySelector("#draw-card-btn");
 drawCardBtn.addEventListener("click", function(){
     displayRadioValue();
     drawCard();
@@ -112,7 +112,7 @@ drawCardBtn.addEventListener("click", function(){
 
 // ----draw specific card button
 
-drawCardSpecific = document.querySelector("#draw-card-specific");
+let drawCardSpecific = document.querySelector("#draw-card-specific");
 drawCardSpecific.addEventListener("click", function(){
     displayRadioValue();
     drawSpecificCard(document.getElementById("specific-card-index").value);
