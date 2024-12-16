@@ -81,6 +81,21 @@ The site should also contain links to external resources, allowing the user to l
 
 ### Imagery
 
+Imagery plays a huge part in Tarot, as interpreting the images of the cards is a key factor in how many people perform readings.
+
+I decided to use the classic [Rider-Waite Tarot Card deck](https://en.wikipedia.org/wiki/Rider%E2%80%93Waite_Tarot) for the cards, primarily because it is the most easily identifiable 
+of the Tarot Card decks. This makes it simple for newer users and intuitive for people more familiar with Tarot Cards, and improves the overall usability of the site.
+
+![The Death Card](/assets/images/13-death.jpg)
+
+For the rest of the site I wanted to keep a clean aesthetic, to keep from making the site layout too cluttered or difficult to understand. To this end I kept most of the Bootstrap's 
+'Light' class settings, which provided an unobtrusive User Interface allowing the focus to remain on the cards in play.
+
+During user testing one piece of feedback I received was the desire for a bacground that worked well with the mystical themes of Tarot. I settled on this bacground image of stars, which 
+works well with the mystical themes whilst not being too obtrusive or distracting for the user.
+
+![The Background Image](/assets/images/blue-background.webp)
+
 ### Wireframe
 
 Wireframes were created for Mobile, Tablet and Desktop using Affinity Designer.
