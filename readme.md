@@ -79,6 +79,10 @@ The site should also contain links to external resources, allowing the user to l
 
 ### Typography
 
+Because I wanted the focus of the site to be the Tarot Cards, I wanted a font family that would not be too much of a distraction for the user.
+
+I decided to keep the Bootstrap default font family which uses Helvetica and Arial. Both are sans-serif fonts, making them clear and easy to read.
+
 ### Imagery
 
 Imagery plays a huge part in Tarot, as interpreting the images of the cards is a key factor in how many people perform readings.
