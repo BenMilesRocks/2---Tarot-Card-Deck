@@ -1,6 +1,6 @@
 # Tarot Card Deck
 
-
+![Tarot Card Deck homepage](/assets/documentation/pages/main-page.png)
 
 ## Project Goals
 
@@ -42,11 +42,30 @@ This project is to create an interactive tarot card deck.
 
 ### User Stories
 
+
 **First Time Visitor Goals**
+
+* I want to be able to quickly understand how to use the site
+    - I want to have an easy to understand tutorial explaining the site features
+    - The site should be easy to use
+    - The function of each button should be clear with little explaination needed
+* I want resources to help me understand how to do tarot card readings
+* I want the site to be responsive to my device
 
 **Returning Visitor Goals**
 
+* I want to be able to jump straight into doing a tarot card reading
+    - I want options to draw a specific card from the deck
+    - I want to be able to shuffle and reset the deck in the middle of a drawing
+* I want resources to help with tarot card readings
+* I want the site to be responsive to my device
+
 **Frequent Visitor Goals**
+
+* I want to be able to jump straight into doing a tarot card reading
+    - I want options to draw a specific card from the deck
+    - I want to be able to shuffle and reset the deck in the middle of a drawing
+* I want the site to be responsive to my device
 
 ## Design
 
@@ -59,6 +78,12 @@ This project is to create an interactive tarot card deck.
 ### Wireframe
 
 Wireframes were created for Mobile, Tablet and Desktop using Affinity Designer.
+
+![Desktop Wireframe](/assets/documentation/wireframe/laptop-wireframe.jpg)
+
+![Tablet Wireframe](/assets/documentation/wireframe/tablet-wireframe.jpg)
+
+![Mobile Wireframe](/assets/documentation/wireframe/mobile-wireframe.jpg)
 
 **Homepage**
 
@@ -78,7 +103,8 @@ This website is built with HTML 5, Javascript and styled using CSS.
 
 ### Frameworks, Libraries & Programs Used
 
-I used [Bootstrap 5](https://getbootstrap.com/) framework to make use of its responsive elements.
+I used [Bootstrap 5](https://getbootstrap.com/) framework to make use of its responsive elements. I also used [GSAP](https://gsap.com/core/) for animations, and [introJS](https://introjs.com/) 
+for the Introduction and Take The Tour features.
 
 ## Deployment and Local Development
 
