@@ -115,7 +115,10 @@ Wireframes were created for Mobile, Tablet and Desktop using Affinity Designer.
 
 ![Mobile Wireframe](/assets/documentation/wireframe/mobile-wireframe.jpg)
 
+### Audio
 
+It was important to include audio elements in this site, as it adds verisimilitude to functions like shuffling the deck and flipping cards. I found stock sounds on 
+[ZapSplat.com](https://www.zapsplat.com/) for the card sounds, and added those to the animations to increase the level of user feedback.
 
 **Homepage**
 
