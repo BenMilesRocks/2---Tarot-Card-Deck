@@ -24,7 +24,8 @@ The site should also contain links to external resources, allowing the user to l
     - [Color Scheme](#color-scheme)
     - [Typography](#typography)
     - [Imagery](#imagery)
-    - [Wireframe](#wireframe#)
+    - [Wireframe](#wireframe)
+    - [Audio](#audio)
 * [Features](#features)
 * [Accessibility](#accessibility)
 * [Credits](#credits)
@@ -77,6 +78,15 @@ The site should also contain links to external resources, allowing the user to l
 
 ### Color Scheme
 
+The color palette for this site was mostly chosen by keeping Bootstrap's 'Light' class defaults, as this provided a clean aesthetic that kept out of the way of the rest of the site. 
+
+During user testing one piece of feedback I received was the desire for a bacground that worked well with the mystical themes of Tarot. I settled on this bacground image of stars, which 
+works well with the mystical themes whilst not being too obtrusive or distracting for the user.
+
+![The Background Image](/assets/images/blue-background.webp)
+
+![Site Color Palette](/assets/documentation/pages/tcd-color-palette.png)
+
 ### Typography
 
 Because I wanted the focus of the site to be the Tarot Cards, I wanted a font family that would not be too much of a distraction for the user.
@@ -95,11 +105,6 @@ of the Tarot Card decks. This makes it simple for newer users and intuitive for 
 For the rest of the site I wanted to keep a clean aesthetic, to keep from making the site layout too cluttered or difficult to understand. To this end I kept most of the Bootstrap's 
 'Light' class settings, which provided an unobtrusive User Interface allowing the focus to remain on the cards in play.
 
-During user testing one piece of feedback I received was the desire for a bacground that worked well with the mystical themes of Tarot. I settled on this bacground image of stars, which 
-works well with the mystical themes whilst not being too obtrusive or distracting for the user.
-
-![The Background Image](/assets/images/blue-background.webp)
-
 ### Wireframe
 
 Wireframes were created for Mobile, Tablet and Desktop using Affinity Designer.
@@ -109,6 +114,8 @@ Wireframes were created for Mobile, Tablet and Desktop using Affinity Designer.
 ![Tablet Wireframe](/assets/documentation/wireframe/tablet-wireframe.jpg)
 
 ![Mobile Wireframe](/assets/documentation/wireframe/mobile-wireframe.jpg)
+
+
 
 **Homepage**
 
