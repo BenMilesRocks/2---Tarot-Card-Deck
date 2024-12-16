@@ -4,9 +4,15 @@
 
 ## Project Goals
 
-This project is to create an interactive tarot card deck.
+This project is to create an interactive tarot card deck, allowing users to perform a basic tarot card reading online without the need for a physical deck of cards.
 
 [The deployed version of the site is available here](https://benmilesrocks.github.io/2---Tarot-Card-Deck/)
+
+The main priority is to make a site that is easy to use. Buttons should be clearly labled, intuitive and easily readable on a wide range of devices.
+
+It should respond quickly and intuitively to user input, with clear feedback for the user to make sure they know when a function is being performed.
+
+The site should also contain links to external resources, allowing the user to learn more about Tarot Card readings at their convenience. 
 
 
 
