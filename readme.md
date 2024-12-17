@@ -145,6 +145,34 @@ The website is a single page, to keep navigation simple and intuitive. The page 
 
 ![Tour](/assets/documentation/gif/tour.gif)
 
+* Buttons to reset the play area and to shuffle the deck of cards
+
+![Reset and Shuffle buttons](/assets/documentation/pages/reset-and-shuffle.png)
+
+* An area to display cards that have been played
+
+![Card Display Area](/assets/documentation/pages/card-display-area.png)
+
+* Cards that have been displayed can also be clicked to enlarge them, making it easier to see the cards on smaller screens
+
+![Card Zoom Animation](/assets/documentation/gif/card-zoom.gif)
+
+* Radio Buttons to select if the card is drawn Normally or Reversed, or to Randomize this choice (default)
+
+![Draw Options](/assets/documentation/pages/draw-options.png)
+
+* Buttons to reset the play area and to shuffle the deck of cards
+
+![Reset and Shuffle buttons](/assets/documentation/pages/reset-and-shuffle.png)
+
+* A button to draw the top card of the deck
+
+![Draw Card button](/assets/documentation/pages/draw-card.png)
+
+* A section to draw a specific card from the deck (ie, the 12th card in the deck rather than the top card)
+
+![Draw Specific Card](/assets/documentation/pages/draw-specific-card.png)
+
 **Animations**
 
 An essential part of this site is making sure the user has ample feedback for actions that are being performed. This not only lends an air of verisimilitude, but also 
@@ -175,7 +203,6 @@ otherwise the user might not think that the function is being performed. This is
 
 It was important to include audio elements in this site, as it increases the level of user feedback while animations are playing. All the sounds were sourced from  
 [ZapSplat.com](https://www.zapsplat.com/), and used in accordance with their standard license.
-
 
 **Future Implementations**
 
