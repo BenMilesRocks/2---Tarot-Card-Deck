@@ -25,7 +25,6 @@ The site should also contain links to external resources, allowing the user to l
     - [Typography](#typography)
     - [Imagery](#imagery)
     - [Wireframe](#wireframe)
-    - [Audio](#audio)
 * [Features](#features)
 * [Accessibility](#accessibility)
 * [Credits](#credits)
@@ -115,10 +114,18 @@ Wireframes were created for Mobile, Tablet and Desktop using Affinity Designer.
 
 ![Mobile Wireframe](/assets/documentation/wireframe/mobile-wireframe.jpg)
 
-### Audio
+As you can see, the Desktop version of the site is almost identical to the wireframe.
 
-It was important to include audio elements in this site, as it adds verisimilitude to functions like shuffling the deck and flipping cards. I found stock sounds on 
-[ZapSplat.com](https://www.zapsplat.com/) for the card sounds, and added those to the animations to increase the level of user feedback.
+![Laptop Homepage](/assets/documentation/pages/laptop-page.jpg)
+
+The tablet version of the site was not large enough to accomodate the 'Draw Card' section, so this was removed to make it easier to view on smaller screens.
+
+![Tablet Homepage](/assets/documentation/pages/tablet-page.jpg)
+
+The mobile version of the site was amended to stack the 'Draw Options' and the 'Draw Specific Card' sections on top of each other, making it easier to display 
+on extra small screens.
+
+![Mobile Homepage](/assets/documentation/pages/mobile-page.jpg)
 
 ### Features
 
@@ -164,7 +171,10 @@ otherwise the user might not think that the function is being performed. This is
 
 ![Resetting the deck](/assets/documentation/gif/rest-deck.gif)
 
+**Audio**
 
+It was important to include audio elements in this site, as it increases the level of user feedback while animations are playing. All the sounds were sourced from  
+[ZapSplat.com](https://www.zapsplat.com/), and used in accordance with their standard license.
 
 
 **Future Implementations**
