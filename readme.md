@@ -120,11 +120,52 @@ Wireframes were created for Mobile, Tablet and Desktop using Affinity Designer.
 It was important to include audio elements in this site, as it adds verisimilitude to functions like shuffling the deck and flipping cards. I found stock sounds on 
 [ZapSplat.com](https://www.zapsplat.com/) for the card sounds, and added those to the animations to increase the level of user feedback.
 
-**Homepage**
-
 ### Features
 
 **Home Page**
+
+The website is a single page, to keep navigation simple and intuitive. The page has
+
+* a favicon in the browser tab
+
+![Favicon](/assets/documentation/pages/favicon.png)
+
+* a navigation bar
+
+![Navbar](/assets/documentation/pages/nav-bar.png)
+
+* An interactive tour, explaining how to use the site
+
+![Tour](/assets/documentation/gif/tour.gif)
+
+**Animations**
+
+An essential part of this site is making sure the user has ample feedback for actions that are being performed. This not only lends an air of verisimilitude, but also 
+makes it clear when functions are being performed. This is especially important for functions that do not relate to displaying cards (such as shuffling the deck), as 
+otherwise the user might not think that the function is being performed. This is why I added animations using GSAP for:
+
+* Drawing the cards
+
+![Drawing Cards](/assets/documentation/gif/normal-draw.gif)
+
+* Reversing the cards
+
+![Reversing Cards](/assets/documentation/gif/reverse-draw.gif)
+
+* Zooming cards in and out
+
+![Drawing Cards](/assets/documentation/gif/card-zoom.gif)
+
+* Shuffling the deck
+
+![Shuffling the deck](/assets/documentation/gif/shuffle.gif)
+
+* Resetting the deck
+
+![Resetting the deck](/assets/documentation/gif/rest-deck.gif)
+
+
+
 
 **Future Implementations**
 
@@ -199,3 +240,5 @@ I would like to acknowledge the following people
 - Mia Edris for helping with the Media sources
 
 - The Code Institute Slack channel Peer Code Review - thank you to everyone who tested the site and offered feedback
+
+- Amilie Miles for 'Rubber Duck' debugging
