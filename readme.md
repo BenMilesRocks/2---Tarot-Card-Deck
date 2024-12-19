@@ -302,6 +302,13 @@ on the DOM. I decided to use a different method to remove the card images when c
 
 ### Media
 
+All sounds were sourced from [ZapSplat.com](https://www.zapsplat.com/).
+
+I decided to use the classic [Rider-Waite Tarot Card deck](https://en.wikipedia.org/wiki/Rider%E2%80%93Waite_Tarot) for the cards, and the images were taken from 
+[Tarotcardmeanings.net](https://www.tarotcardmeanings.net/).
+
+The background image was sourced from [Freepik.com](https://www.freepik.com/), used under their license agreement.
+
 ### Acknowledgements
 
 I would like to acknowledge the following people
