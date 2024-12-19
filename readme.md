@@ -208,6 +208,25 @@ It was important to include audio elements in this site, as it increases the lev
 
 ### Accessibility
 
+I have worked hard to ensure the website is as easy to navigate and as accessible to disabled people as possible. To achieve this I:
+
+* Used semantic HTML elements
+* Added Aria tags to all links, buttons and content to ensure Screen Readers are able to comprehend it
+* Used a San-Serif font for site navigation, to make it as easy to read as possible
+* Used as little text as possible, to make sure the site is accessible to people who do not speak or read English
+* Ensured contrasting colors were used throughout the site to keep elements easily idenitfiable and readable.
+
+I also tested the site with the Chrome extension [Web Disability](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla) Simulator 
+to ensure the user experience was friendly to those with color blindness, parkinsons and dyslexia.
+
+**Yellow-Blue Colorblindness**
+
+![Yellow-Blue Colorblindness](/assets/documentation/pages/yellow-blue-colorblind.png)
+
+**Red-Green Colorblindness**
+
+![Red-Green Colorblindness](/assets/documentation/pages/red-green-colorblind.png)
+
 ## Technologies Used
 
 ### Languages Used
