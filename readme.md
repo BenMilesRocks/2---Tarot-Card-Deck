@@ -266,6 +266,21 @@ Please refer to [testing.md](/testing.md) for all testing carried out.
 
 ### Code used
 
+I used code from [this Stack Overflow post](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array) that how to implement the 
+[Fisher-Yates Shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) in JavaScript. 
+
+I also took inspiration from this Stack Overflow post about [Enlarging and Shrinking images](https://stackoverflow.com/questions/71034865/zoom-in-and-out-of-image-on-click-using-event-listeners) 
+which was used in the toggleZoom function. 
+
+For getting the value of the Draw Specific Card input field I used code from [this article on Shecodes.io](https://www.shecodes.io/athena/77658-how-to-get-the-value-of-an-input-in-javascript#:~:text=To%20get%20the%20value%20of%20an%20input%20in%20JavaScript%2C%20you,user%20in%20the%20input%20field.&text=%2F%2F%20HTML%20%3Cinput%20type%3D%22,%22).
+
+To create the image elements [I used code from this post on Tutorialspoint.com](https://www.tutorialspoint.com/how-to-create-an-image-element-dynamically-using-javascript) to dynamically create 
+images as cards are drawn.
+
+Finally there was [this forum post on sololearn.com](https://www.sololearn.com/en/Discuss/2672663/how-to-write-a-js-code-to-remove-all-img-tags-from-html-page) which explains how to delete images 
+on the DOM. I decided to use a different method to remove the card images when clicking the 'Reset' button, but it still uses part of this code to iterate through the elements tagged with the 
+'to-be-deleted' class.
+
 ### Media
 
 ### Acknowledgements
