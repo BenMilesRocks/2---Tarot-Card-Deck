@@ -315,8 +315,12 @@ I would like to acknowledge the following people
 
 - Jubril Akolade - my Code Institute mentor
 
-- Mia Edris for helping with the Media sources
+- Ashley Wolf for explaining how Tarot Card readings are performed, and answering questions to help with user requirements
+
+- Eliza Chang & Ashley Wolf for site testing on mobile devices
 
 - The Code Institute Slack channel Peer Code Review - thank you to everyone who tested the site and offered feedback
+
+- The Code Institude Tutor Support team for assisting with fixing issues
 
 - Amilie Miles for 'Rubber Duck' debugging
