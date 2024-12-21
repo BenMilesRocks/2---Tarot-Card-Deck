@@ -58,32 +58,32 @@ I used Lighthouse within the Chrome Developer Tools to test the performance, acc
 | **Goals** | **How are they achieved?** |
 | --- | --- |
 | **I want to be able to quickly understand how to use the site** | --- |
-| *I want to have an easy to understand tutorial explaining the site features* | --- |
-| *The site should be easy to use* | --- |
-| *The function of each button should be clear with little explaination needed* | --- |
-| **I want resources to help me understand how to do tarot card readings** | --- |
-| **I want the site to be responsive to my device** | --- |
+| *I want to have an easy to understand tutorial explaining the site features* | Added interactive tour to site, explaining features to new users |
+| *The site should be easy to use* | <ul><li>Kept site as simple as possible, making it intuitive to use</li> <li>Made elements large and easy to see</li> <li>Added interactive tour to help new users</li></ul>|
+| *The function of each button should be clear with little explaination needed* | Used simple labels for buttons, helping make the function of each elements easy to understand |
+| **I want resources to help me understand how to do tarot card readings** | Added links to external resources where the user can learn more about Tarot Card readings |
+| **I want the site to be responsive to my device** | The site was designed with responsiveness in mind, and has been tested on multiple devices to ensure functionality on all devices |
 
 
 **Returning Visitors**
 
 | **Goals** | **How are they achieved?** |
 | --- | --- |
-| **I want to be able to jump straight into doing a tarot card reading** | --- |
-| *I want options to draw a specific card from the deck* | --- |
-| *I want to be able to shuffle and reset the deck in the middle of a drawing* | --- |
-| **I want resources to help with tarot card readings** | --- |
-| **I want the site to be responsive to my device** | --- |
+| **I want to be able to jump straight into doing a tarot card reading** | <ul><li>Made the site load straight into the main page, ensuring quick access to the main functions of the site</li> <li>Ensured the introduction message is easy to dismiss, allowing users to start reading quickly</li> <li>Ensures page loads with the deck shuffled and ready to draw cards</li></ul> |
+| *I want options to draw a specific card from the deck* | Added 'Draw Specific Card' button to the page, allowing the user to pick where they draw the card from in the deck |
+| *I want to be able to shuffle and reset the deck in the middle of a drawing* | Added 'Shuffle' button, allowing users to shuffle the deck in the middle of a reading at will |
+| **I want resources to help me understand how to do tarot card readings** | Added links to external resources where the user can learn more about Tarot Card readings |
+| **I want the site to be responsive to my device** | The site was designed with responsiveness in mind, and has been tested on multiple devices to ensure functionality on all devices |
 
 
 **Frequent Visitors**
 
 | **Goals** | **How are they achieved?** |
 | --- | --- |
-| **I want to be able to jump straight into doing a tarot card reading** | --- |
-| *I want options to draw a specific card from the deck* | --- |
-| *I want to be able to shuffle and reset the deck in the middle of a drawing* | --- |
-| **I want the site to be responsive to my device** | --- |
+| **I want to be able to jump straight into doing a tarot card reading** | <ul><li>Made the site load straight into the main page, ensuring quick access to the main functions of the site</li> <li>Ensured the introduction message is easy to dismiss, allowing users to start reading quickly</li> <li>Ensures page loads with the deck shuffled and ready to draw cards</li></ul> |
+| *I want options to draw a specific card from the deck* | Added 'Draw Specific Card' button to the page, allowing the user to pick where they draw the card from in the deck |
+| *I want to be able to shuffle and reset the deck in the middle of a drawing* | Added 'Shuffle' button, allowing users to shuffle the deck in the middle of a reading at will |
+| **I want the site to be responsive to my device** | The site was designed with responsiveness in mind, and has been tested on multiple devices to ensure functionality on all devices |
 
 
 - - -
