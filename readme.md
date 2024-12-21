@@ -173,6 +173,10 @@ The website is a single page, to keep navigation simple and intuitive. The page 
 
 ![Draw Specific Card](/assets/documentation/pages/draw-specific-card.png)
 
+The site also features a 404 page, in case of mis-navigation by the user.
+
+![404 Page](/assets/documentation/pages/404-page.png)
+
 **Animations**
 
 An essential part of this site is making sure the user has ample feedback for actions that are being performed. This not only lends an air of verisimilitude, but also 

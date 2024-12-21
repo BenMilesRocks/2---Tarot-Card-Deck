@@ -57,18 +57,34 @@ I used Lighthouse within the Chrome Developer Tools to test the performance, acc
 
 | **Goals** | **How are they achieved?** |
 | --- | --- |
+| **I want to be able to quickly understand how to use the site** | --- |
+| *I want to have an easy to understand tutorial explaining the site features* | --- |
+| *The site should be easy to use* | --- |
+| *The function of each button should be clear with little explaination needed* | --- |
+| **I want resources to help me understand how to do tarot card readings** | --- |
+| **I want the site to be responsive to my device** | --- |
 
 
 **Returning Visitors**
 
 | **Goals** | **How are they achieved?** |
 | --- | --- |
+| **I want to be able to jump straight into doing a tarot card reading** | --- |
+| *I want options to draw a specific card from the deck* | --- |
+| *I want to be able to shuffle and reset the deck in the middle of a drawing* | --- |
+| **I want resources to help with tarot card readings** | --- |
+| **I want the site to be responsive to my device** | --- |
 
 
 **Frequent Visitors**
 
 | **Goals** | **How are they achieved?** |
 | --- | --- |
+| **I want to be able to jump straight into doing a tarot card reading** | --- |
+| *I want options to draw a specific card from the deck* | --- |
+| *I want to be able to shuffle and reset the deck in the middle of a drawing* | --- |
+| **I want the site to be responsive to my device** | --- |
+
 
 - - -
 
@@ -84,6 +100,7 @@ Mobile Devices:
 <ul>
 <li>Samsung Galaxy S20 FE</li>
 <li>Samsung A20</li>
+<li>Samsung Galaxy Z Flip 6</li>
 </ul>
 
 
