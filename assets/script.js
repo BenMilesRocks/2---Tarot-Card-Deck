@@ -2,7 +2,7 @@ gsap.registerPlugin(Flip);
 
 // --------------------------------------------------Constants & objects
 
-// fullDeck - complete array of all cards in the deck, in order. References file names of relevant images 
+// Array of all cards in the deck
 
 const fullDeck = ["00-fool.jpg", "01-magician.jpg", "02-highpriestess.jpg", "03-empress.jpg", "04-emperor.jpg", "05-hierophant.jpg", 
     "06-lovers.jpg", "07-chariot.jpg", "08-strength.jpg", "09-hermit.jpg", 
@@ -21,7 +21,7 @@ const fullDeck = ["00-fool.jpg", "01-magician.jpg", "02-highpriestess.jpg", "03-
     "70-swords-07.jpg", "71-swords-08.jpg", "72-swords-09.jpg", "73-swords-10.jpg", "74-swords-11.jpg", 
     "75-swords-12.jpg", "76-swords-13.jpg", "77-swords-14.jpg"];
 
-// fullDeckAlt - array describing of all cards in the deck, in order. Index matches fullDeck for ease of reference
+// Array describing of all cards in the deck
 
 const fullDeckAlt = ["The Fool", "The Magician", "The High Priestess", "The Empress", "The Emperor", "The Hierophant", 
     "The Lovers", "The Chariot", "Strength", "The Hermit", 
@@ -40,26 +40,26 @@ const fullDeckAlt = ["The Fool", "The Magician", "The High Priestess", "The Empr
     "Seven of Swords", "Eight of Swords", "Nine of Swords", "Ten of Swords", "Page of Swords", 
     "Knight of Swords", "Queen of Swords", "King of Swords"];
 
-// deck object - an object containing the state of the cards in play. This allows for the object's attributes to be manipulated in place
+// deck object
 
 let deck = {
-    shuffledDeck: [],
     alt: [],
-    drawnCards: [],
     drawnAlt: [],
+    drawnCards: [],
+    shuffledDeck: []
 };
 
 
 // --------------------------------------------------Event Listeners
 
-// On page load, runs resetDeckFirst function to ensure deck object is ready for play
+// On page load, runs resetDeckFirst
 
 document.addEventListener("DOMContentLoaded", () => {
     resetDeckFirst();
     introJs().setOptions({
         steps: [{
-          title: 'Welcome',
-          intro: 'Welcome to the interactive Tarot Card Deck! Click "Take the Tour" in the menu above to learn how the app works.'
+          intro: "Welcome to the interactive Tarot Card Deck! Click 'Take the Tour' in the menu above to learn how the app works.",
+          title: "Welcome"
         }]}).start();
 });
 
@@ -94,11 +94,11 @@ let specificCardIndex = document.querySelector("#specific-card-index");
 let invertSelect = "random";
 
 function displayRadioValue() {
-    var ele = document.getElementsByName("options");
+    let ele = document.getElementsByName("options");
 
     for (i = 0; i < ele.length; i++) {
         if (ele[i].checked)
-            invertSelect = ele[i].value;
+        {invertSelect = ele[i].value;}
     }
 }
 
@@ -121,7 +121,7 @@ drawCardSpecific.addEventListener("click", function(){
 
 // --------------------------------------------------Functions
 
-// resetDeckFirst ---- Funtion for setting up the deck on loading. Prevents resetDeck from deleting images as they are being loaded, allowing for animations to play
+// Setup the deck on loading
 
 function resetDeckFirst(){
     // reset deck variables
@@ -133,10 +133,9 @@ deck.drawnAlt = [];
 deckShuffle(deck.shuffledDeck, deck.alt);
 }
 
-// testScreenSize ---- checks if screen is large enough to display Draw Card button, then runs appropriate IntroJS script
-//  TO DO - Add functions to reset deck & draw cards before tour, and reset deck after tour is finished
+// checks screen size then runs appropriate IntroJS script
 
-function testScreenSize(){    
+function testScreenSize(){
     if (window.matchMedia("(max-width: 992px)").matches){
         runMobileTour();
     } else {
@@ -148,45 +147,45 @@ function testScreenSize(){
 
 function runTour(){
     introJs().addSteps([{
-        element: document.querySelectorAll('#card-display-area')[0],
-        title: "Card Display Area",
+        element: document.querySelectorAll("#card-display-area")[0],
         intro: "When cards are drawn they are displayed in this area here.",
+        title: "Card Display Area"
     }]).addSteps([{
-        element: document.querySelectorAll('#card-slot-2')[0],
-        title: "Card Slot",
+        element: document.querySelectorAll("#card-slot-2")[0],
         intro: "Each card can be clicked to enlarge it for a better view. Click it again to shrink it back to normal size.",
+        title: "Card Slot"
     }]).addSteps([{
-        element: document.querySelectorAll('.draw-options')[0],
-        title: "Draw Controls",
+        element: document.querySelectorAll(".draw-options")[0],
         intro: "These choose if the card is drawn normally or reversed. This will only change when you select a different option from this menu.",
+        title: "Draw Controls"
     }]).addSteps([{
-        element: document.querySelectorAll('#normal-button')[0],
-        title: "Normal",
+        element: document.querySelectorAll("#normal-button")[0],
         intro: "This will draw cards the correct way up.",
+        title: "Normal"
     }]).addSteps([{
-        element: document.querySelectorAll('#reversed-button')[0],
-        title: "Reversed",
+        element: document.querySelectorAll("#reversed-button")[0],
         intro: "This will draw cards reversed.",
+        title: "Reversed"
     }]).addSteps([{
-        element: document.querySelectorAll('#random-button')[0],
-        title: "Draw Controls",
+        element: document.querySelectorAll("#random-button")[0],
         intro: "This will randomly select if cards are reversed or not. This is the default option.",
+        title: "Draw Controls"
     }]).addSteps([{
-        element: document.querySelectorAll('.draw-card')[0],
-        title: "Draw Card",
+        element: document.querySelectorAll(".draw-card")[0],
         intro: "This draws the top card from the deck.",
+        title: "Draw Card"
     }]).addSteps([{
-        element: document.querySelectorAll('.draw-specific')[0],
-        title: "Draw Specific Card",
+        element: document.querySelectorAll(".draw-specific")[0],
         intro: "This draws a specific card from the deck (like the 42nd card, for example). If you select '1' it will draw the top card from the deck.",
+        title: "Draw Specific Card"
     }]).addSteps([{
-        element: document.querySelectorAll('#reset')[0],
-        title: "Reset Button",
+        element: document.querySelectorAll("#reset")[0],
         intro: "This clears away all the cards on display and shuffles the deck, ready for a new reading.",
+        title: "Reset Button"
     }]).addSteps([{
-        element: document.querySelectorAll('#deck-shuffle-btn')[0],
-        title: "Shuffle Button",
+        element: document.querySelectorAll("#deck-shuffle-btn")[0],
         intro: "This will shuffle the deck *without* removing the cards on display. This way you can shuffle your deck in the middle of a reading if you wish.",
+        title: "Shuffle Button"
     }]).start();
 }
 
@@ -196,62 +195,63 @@ function runTour(){
 
 function runMobileTour(){
     introJs().addSteps([{
-        element: document.querySelectorAll('#card-display-area')[0],
-        title: "Card Display Area",
+        element: document.querySelectorAll("#card-display-area")[0],
         intro: "When cards are drawn they are displayed in this area here.",
+        title: "Card Display Area"
     }]).addSteps([{
-        element: document.querySelectorAll('#card-slot-2')[0],
-        title: "Card Slot",
+        element: document.querySelectorAll("#card-slot-2")[0],
         intro: "Each card can be clicked to enlarge it for a better view. Click it again to shrink it back to normal size.",
+        title: "Card Slot"
     }]).addSteps([{
-        element: document.querySelectorAll('.draw-options')[0],
-        title: "Draw Controls",
+        element: document.querySelectorAll(".draw-options")[0],
         intro: "These choose if the card is drawn normally or reversed. This will only change when you select a different option from this menu.",
+        title: "Draw Controls"
     }]).addSteps([{
-        element: document.querySelectorAll('#normal-button')[0],
-        title: "Normal",
+        element: document.querySelectorAll("#normal-button")[0],
         intro: "This will draw cards the correct way up.",
+        title: "Normal"
     }]).addSteps([{
-        element: document.querySelectorAll('#reversed-button')[0],
-        title: "Reversed",
+        element: document.querySelectorAll("#reversed-button")[0],
         intro: "This will draw cards reversed.",
+        title: "Reversed"
     }]).addSteps([{
-        element: document.querySelectorAll('#random-button')[0],
-        title: "Draw Controls",
+        element: document.querySelectorAll("#random-button")[0],
         intro: "This will randomly select if cards are reversed or not. This is the default option.",
+        title: "Draw Controls"
     }]).addSteps([{
-        element: document.querySelectorAll('#card-number')[0],
-        title: "Card Number",
+        element: document.querySelectorAll("#card-number")[0],
         intro: "This draws a specific card from the deck (like the 42nd card, for example). If you select '1' it will draw the top card from the deck.",
+        title: "Card Number"
     }]).addSteps([{
-        element: document.querySelectorAll('#draw-card-specific')[0],
-        title: "Draw Card",
+        element: document.querySelectorAll("#draw-card-specific")[0],
         intro: "Click this to draw the card.",
+        title: "Draw Card"
     }]).addSteps([{
-        element: document.querySelectorAll('#reset')[0],
-        title: "Reset Button",
+        element: document.querySelectorAll("#reset")[0],
         intro: "This clears away all the cards on display and shuffles the deck, ready for a new reading.",
+        title: "Reset Button"
     }]).addSteps([{
-        element: document.querySelectorAll('#deck-shuffle-btn')[0],
-        title: "Shuffle Button",
+        element: document.querySelectorAll("#deck-shuffle-btn")[0],
         intro: "This will shuffle the deck *without* removing the cards on display. This way you can shuffle your deck in the middle of a reading if you wish.",
+        title: "Shuffle Button"
     }]).start();
 }
 
 
 
-// deckShuffle ---- Function for shuffling deck
-// ---- Shuffles the array passed to it, allowing it to be used multiple times without resetting the deck
+// Function for shuffling deck
 
 function deckShuffle(cards, alt){
     let currentIndex = cards.length;
     while (currentIndex != 0) {
         let randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
-        [cards[currentIndex], cards[randomIndex]] = [cards[randomIndex], cards[currentIndex]];
-        [alt[currentIndex], alt[randomIndex]] = [alt[randomIndex], alt[currentIndex]];
+        [cards[currentIndex], cards[randomIndex]] =
+            [cards[randomIndex], cards[currentIndex]];
+        [alt[currentIndex], alt[randomIndex]] =
+            [alt[randomIndex], alt[currentIndex]];
   }
-};
+}
 
 // drawCard ---- Function for drawing the top card of the deck
 
@@ -261,9 +261,9 @@ function drawCard(){
     invertTest(invertSelect);
     specificCardIndex.setAttribute("max", `${deck.shuffledDeck.length}`);
     specificCardIndex.value = 1;
-};
+}
 
-// drawSpecificCard ---- Function for drawing a specific card from the deck
+// Draw a specific card from the deck
 
 
 
@@ -271,31 +271,36 @@ function drawSpecificCard(number){
     if (number > deck.shuffledDeck.length) {
         deckAlert(number);
     } else {
-        deck.drawnCards.push((deck.shuffledDeck.splice((number - 1), 1))[0]); 
-        deck.drawnAlt.push((deck.alt.splice((number - 1), 1))[0]);       
+        deck.drawnCards.push((deck.shuffledDeck.splice((number - 1), 1))[0]);
+        deck.drawnAlt.push((deck.alt.splice((number - 1), 1))[0]);
         invertTest(invertSelect);
         specificCardIndex.setAttribute("max", `${deck.shuffledDeck.length}`);
         specificCardIndex.value = 1;
     }
-};
-
-// deckAlert ---- Creates warning message when drawSpecificCard is out of range
-
-const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-
-function deckAlert(number) {
-    const wrapper = document.createElement('div')
-    wrapper.innerHTML = [
-        `<div class="alert alert-danger alert-dismissible text-center" role="alert">`,
-        `   <div><strong>WARNING!</strong>You cannot draw card number ${number}! There are only ${deck.shuffledDeck.length} cards in the deck!</div>`,
-        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-        '</div>'
-    ].join('')
-
-    alertPlaceholder.append(wrapper)
 }
 
-// invertTest ---- Function to check if card is inverted, pushing boolean value to displayCard function
+// Creates warning message when drawSpecificCard is out of range
+
+const alertPlaceholder = document.getElementById("liveAlertPlaceholder");
+
+function deckAlert(number) {
+    const wrapper = document.createElement("div");
+    wrapper.innerHTML = [
+        `<div class="alert alert-danger alert-dismissible`,
+        `text-center" role="alert">`,
+        `   <div><strong>WARNING!</strong>`,
+        `You cannot draw card number ${number}!`,
+        `There are only ${deck.shuffledDeck.length} cards in the deck!</div>`,
+        `   <button type="button" class="btn-close" `,
+        `data-bs-dismiss="alert" aria-label="Close">`,
+        `   </button>`,
+        `</div>`
+    ].join("");
+
+    alertPlaceholder.append(wrapper);
+}
+
+// Check if card is reversed
 
 function invertTest(rule){
     let output;
@@ -312,14 +317,14 @@ function invertTest(rule){
             output = false;
         }
     }
-    displayCard(output)
-};
+    displayCard(output);
+}
 
 // displayCard ---- Function for displaying cards to play area
 
 function displayCard(inverted){
         // takes values from DOM to create new img element
-    let cardSlotId = `card-slot-${deck.drawnCards.length}`
+    let cardSlotId = `card-slot-${deck.drawnCards.length}`;
     let cardId = `card-${deck.drawnCards.length}`;
     let cardToShow = deck.drawnCards[deck.drawnCards.length -1];
     let source = `assets/images/${cardToShow}`;
@@ -349,35 +354,35 @@ function displayCard(inverted){
     slot.appendChild(card);
 
         // animates card flip
-    flipSound();    
-    gsap.to(`#${cardBackId}`, {rotationY: "180deg", duration: 0.5, delay: 0.25});
-    gsap.from(`#${cardId}`, {rotationY: "90deg", duration: 0.5, delay: 0.4});
+    flipSound();
+    gsap.to(`#${cardBackId}`, {
+         delay: 0.25, duration: 0.5, rotationY:"180deg"
+    });
+    gsap.from(`#${cardId}`, {
+        delay: 0.4, duration: 0.5, rotationY: "90deg"
+    });
     if (card.classList.contains("inverted")){
         setTimeout(turnSound, 1000);
-        gsap.to(`#${cardId}`, {rotation: "180deg", duration: 0.5, delay: 1});
+        gsap.to(`#${cardId}`, {
+            delay: 1, duration: 0.5, rotation: "180deg"
+        });
     }
-
         // adds event listener to new element
     document.getElementById(cardId).addEventListener("click", function(){
-        console.log(this);
         toggleZoom(this);
     })
-    
-};
+}
 
-// resetDeck ---- Funtion for resetting the play area, reshuffling all cards
-// TO DO - Change how cards are marked for deletion (give elements a new class "display-cards", then mark these elements) to stop reset stopping Shuffle animation
+// Funtion for resetting the play area
 
 let resetInProgress = false;
 
 function resetDeck(){
         // reset deck variables
     if (resetInProgress == true) {
-        return
+        return;
     } else {
         resetInProgress = true;
-
-        
         deck.shuffledDeck = [...fullDeck];
         deck.drawnCards = [];
         deck.alt = [...fullDeckAlt];
@@ -385,36 +390,34 @@ function resetDeck(){
             // shuffle deck
         deckShuffle(deck.shuffledDeck, deck.alt);
             // marks cards for deletion
-        let images = document.getElementsByClassName('card-in-play'); 
+        let images = document.getElementsByClassName("card-in-play");
         let l = images.length;
-        for (let i = 0; i < l; i++) {             
-            images[i].classList.add("to-be-deleted");           
+        for (let i = 0; i < l; i++) {
+            images[i].classList.add("to-be-deleted");
         }
             // animates cards being removed
-        gsap.to(".to-be-deleted", {y: "40vh", opacity: "0", duration: 0.5, ease: "power2.out"})
+        gsap.to(".to-be-deleted", {
+            y: "40vh", opacity: "0", duration: 0.5, ease: "power2.out"
+        })
             // delete images
         setTimeout(deleteImages, 500);
             // animate deck shuffling
-        setTimeout(cardShuffleAnimation, 550); 
-
+        setTimeout(cardShuffleAnimation, 550);
         setTimeout(function() {resetInProgress = false}, 3351);
     }
-       
-    
 };
 
-// deleteImages ---- removes all marked elements from the DOM, resetting the play area
+// Removes all marked elements from the DOM
 
 function deleteImages(){
-    let images = document.getElementsByClassName("to-be-deleted"); 
+    let images = document.getElementsByClassName("to-be-deleted");
     let l = images.length;
-    for (let i = 0; i < l; i++) { 
+    for (let i = 0; i < l; i++) {
         images[0].parentNode.removeChild(images[0]);
     }
 }
 
 // ------------------------------Audio Functions
-// Allows audio to be called multiple times, ensuring audio is always played even if an animation is in progress
 
 function pickUpSound(){
     const pickUp = new Audio("assets/audio/pick-up-card.mp3")
@@ -424,7 +427,7 @@ function pickUpSound(){
 function turnSound(){
     const slideSound = new Audio("assets/audio/card-slide.mp3");
     slideSound.play();
-} 
+}
 
 function flipSound(){
     const flipSound = new Audio("assets/audio/card-flip.mp3")
@@ -438,7 +441,7 @@ function playShuffledCardSound(){
 
 // ------------------------------Animation Functions
 
-// toggleZoom ---- Enlarges a card that has been clicked on, making it fill the screen
+// Enlarges card that has been clicked
 
 function toggleZoom(image){
     if (image.classList.contains("inverted")){
@@ -447,17 +450,22 @@ function toggleZoom(image){
     let state = Flip.getState(image);
     image.classList.toggle("zoomed");
     pickUpSound();
-    // Flip.from(state, {duration: 0.75, spin: 1, zIndex: 4, ease: "power2.Out"});
     if (image.classList.contains("inverted")){
-        Flip.from(state, {duration: 0.75, spin: 1.5, zIndex: 4, ease: "power2.Out"});
-        gsap.to(image, {rotation: "180deg", duration:0, delay: 0.75});
+        Flip.from(state, {
+            duration: 0.75, spin: 1.5, zIndex: 4, ease: "power2.Out"
+        });
+        gsap.to(image, {
+            rotation: "180deg", duration:0, delay: 0.75
+        });
     } else {
-        Flip.from(state, {duration: 0.75, spin: 1, zIndex: 4, ease: "power2.Out"});
+        Flip.from(state, {
+            duration: 0.75, spin: 1, zIndex: 4, ease: "power2.Out"
+        });
     }
-     
+
 }
 
-// cardShuffleAnimation ---- animates the deck being shuffled for the player, making it clear that the deck has been shuffled
+// Animates the deck being shuffled
 
 let shuffleAnimationRunning = false;
 
@@ -465,7 +473,7 @@ function cardShuffleAnimation(){
     if (shuffleAnimationRunning == true){
         return
     } else {shuffleAnimationRunning = true
-        for (let i = 0; i < 3; i++){        
+        for (let i = 0; i < 3; i++){
             let card = new Image();
             card.src = "assets/images/card-back.jpg";
             card.classList.add("card");
@@ -474,28 +482,61 @@ function cardShuffleAnimation(){
             document.getElementById("card-slot-2").appendChild(card);
         }
         pickUpSound();
-        gsap.from("#shuffling-card-0", {y: "40vh", opacity: "0", duration: 0.5, ease: "power3.out", zIndex: 4});
-        gsap.from("#shuffling-card-1", {y: "40vh", opacity: "0", duration: 0.5, ease: "power3.out", zIndex: 4});
-        gsap.from("#shuffling-card-2", {y: "40vh", opacity: "0", duration: 0.5, ease: "power3.out", zIndex: 4});
-        setTimeout(playShuffledCardSound, 500);    
-        gsap.to("#shuffling-card-1", {x: "30vw", duration: 0.25, delay: 0.5, zIndex: 4});
-        gsap.to("#shuffling-card-2", {x: "-30vw", duration:0.25, delay: 0.5, zIndex: 4});
-        gsap.to("#shuffling-card-2", {x: "30vw", duration: 0.25, delay: 0.75, zIndex: 4});
-        gsap.to("#shuffling-card-1", {x: "-30vw", duration:0.25, delay: 0.75, zIndex: 4});
-        gsap.to("#shuffling-card-1", {x: "30vw", duration: 0.25, delay: 1, zIndex: 4});
-        gsap.to("#shuffling-card-2", {x: "-30vw", duration:0.25, delay: 1, zIndex: 4});
-        gsap.to("#shuffling-card-1", {x: "0vw", duration: 0.25, delay: 1.25, zIndex: 4});
-        gsap.to("#shuffling-card-2", {x: "0vw", duration:0.25, delay: 1.25, zIndex: 4});
+        gsap.from("#shuffling-card-0", {
+            y: "40vh", opacity: "0", duration: 0.5,
+            ease: "power3.out", zIndex: 4});
+        gsap.from("#shuffling-card-1", {
+            y: "40vh", opacity: "0", duration: 0.5,
+            ease: "power3.out", zIndex: 4
+        });
+        gsap.from("#shuffling-card-2", {
+            y: "40vh", opacity: "0", duration: 0.5,
+            ease: "power3.out", zIndex: 4
+        });
+        setTimeout(playShuffledCardSound, 500);
+        gsap.to("#shuffling-card-1", {
+            x: "30vw", duration: 0.25, delay: 0.5, zIndex: 4
+        });
+        gsap.to("#shuffling-card-2", {
+            x: "-30vw", duration:0.25, delay: 0.5, zIndex: 4
+        });
+        gsap.to("#shuffling-card-2", {
+            x: "30vw", duration: 0.25, delay: 0.75, zIndex: 4
+        });
+        gsap.to("#shuffling-card-1", {
+            x: "-30vw", duration:0.25, delay: 0.75, zIndex: 4
+        });
+        gsap.to("#shuffling-card-1", {
+            x: "30vw", duration: 0.25, delay: 1, zIndex: 4
+        });
+        gsap.to("#shuffling-card-2", {
+            x: "-30vw", duration:0.25, delay: 1, zIndex: 4
+        });
+        gsap.to("#shuffling-card-1", {
+            x: "0vw", duration: 0.25, delay: 1.25, zIndex: 4
+        });
+        gsap.to("#shuffling-card-2", {
+            x: "0vw", duration:0.25, delay: 1.25, zIndex: 4
+        });
         setTimeout(turnSound, 1900);
-        gsap.to("#shuffling-card-0", {y: "40vh", opacity: "0", duration: 0.9, ease: "power1.out", delay: 1.9, zIndex: 4});
-        gsap.to("#shuffling-card-1", {y: "40vh", opacity: "0", duration: 0.9, ease: "power2.out", delay: 1.9, zIndex: 4});
-        gsap.to("#shuffling-card-2", {y: "40vh", opacity: "0", duration: 0.9, ease: "power3.out", delay: 1.9, zIndex: 4});
+        gsap.to("#shuffling-card-0", {
+            y: "40vh", opacity: "0", duration: 0.9,
+            ease: "power1.out", delay: 1.9, zIndex: 4
+        });
+        gsap.to("#shuffling-card-1", {
+            y: "40vh", opacity: "0", duration: 0.9,
+            ease: "power2.out", delay: 1.9, zIndex: 4
+        });
+        gsap.to("#shuffling-card-2", {
+            y: "40vh", opacity: "0", duration: 0.9,
+            ease: "power3.out", delay: 1.9, zIndex: 4
+        });
         setTimeout(endShuffleAnimation, 2800);
         setTimeout(function() {shuffleAnimationRunning = false}, 2801);
     }
 }
 
-// endShuffleAnimation - removes img elements, preventing them from slowing down the page
+// removes IMG elements
 
 function endShuffleAnimation(){
     document.getElementById("shuffling-card-0").remove();
@@ -505,4 +546,7 @@ function endShuffleAnimation(){
 
 
 var module = module || {};
-module.exports = {fullDeck, deck, drawCard, resetDeck, drawSpecificCard, deckShuffle, displayCard};
+module.exports = {
+    fullDeck, deck, drawCard, resetDeck,
+    drawSpecificCard, deckShuffle, displayCard
+};
