@@ -30,7 +30,11 @@ I have gone through each page using Google Chrome developer tools & Microsoft Ed
 
 **HTML Validation**
 
-I used [W3C's HTML validator](https://validator.w3.org/) to check my code.
+I used [W3C's HTML validator](https://validator.w3.org/) to check my code, which showed no issues.
+
+![W3C HTML Validation - index.html](/assets/testing/validation/html-validation.png)
+
+![W3C HTML Validation - 404.html](/assets/testing/validation/404-html-validation.png)
 
 **CSS Validation**
 
