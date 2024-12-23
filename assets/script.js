@@ -188,7 +188,8 @@ function runTour(){
         title: "Reversed"
     }]).addSteps([{
         element: document.querySelectorAll("#random-button")[0],
-        intro: "This will randomly select if cards are reversed or not. This is the default option.",
+        intro: "This will randomly select if cards are reversed"
+        + " or not. This is the default option.",
         title: "Draw Controls"
     }]).addSteps([{
         element: document.querySelectorAll(".draw-card")[0],
@@ -390,7 +391,7 @@ function displayCard(inverted){
         // adds event listener to new element
     document.getElementById(cardId).addEventListener("click", function(){
         toggleZoom(this);
-    })
+    });
 }
 
 // Funtion for resetting the play area
@@ -412,7 +413,8 @@ function resetDeck(){
             // marks cards for deletion
         let images = document.getElementsByClassName("card-in-play");
         let l = images.length;
-        for (let i = 0; i < l; i++) {
+        for (let i = 0; i < l; i+=1)
+        {
             images[i].classList.add("to-be-deleted");
         }
             // animates cards being removed
