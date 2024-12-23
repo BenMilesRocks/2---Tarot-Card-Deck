@@ -45,6 +45,13 @@ I used [W3C's Jigsaw Validator](https://jigsaw.w3.org/css-validator/) to test my
 
 ### Linter
 
+I used [JSLint](https://www.jslint.com/) to test my site's JavaScript code. There was only one issue that I was unable to resolve:
+
+![JSLint Validation](/assets/testing/validation/jslint-validation.png)
+
+The linter did not accept the syntax of this For loop, which confirms to the standards of the [w3schools](https://www.w3schools.com/js/js_loop_for.asp) 
+documentation. The code works correctly, and this seems to be an issue with the Linter rather than the code itself.
+
 - - -
 
 ### Lighthouse
