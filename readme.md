@@ -210,6 +210,25 @@ It was important to include audio elements in this site, as it increases the lev
 
 **Future Implementations**
 
+There are a number of additional features that I would like to implement in future versions of the site, in particular:
+
+* Add options for different types of Tarot Reading
+
+Although the 'Three Card Reading' is seen as the simple default reading for most Tarot Card users, there are many different 'Spreads' (or patterns) for reading cards like 
+[The simple Five Card Spread](https://www.thetarotguide.com/simple-five-card-spread/), [The Caltic Cross](https://labyrinthos.co/blogs/learn-tarot-with-labyrinthos-academy/the-celtic-cross-tarot-spread-exploring-the-classic-10-card-tarot-spread?srsltid=AfmBOorouK9hUTr60I2SayLXth_Il2KGnDadHestefhssDgBoPrSpqO0) and 
+[The Twelve Houses of the Zodiac](https://www.llewellyn.com/journal/article/1748?srsltid=AfmBOoo5CGuJd_wWuVmYod6zX_0n2YNRn7gQWSUVwLON9D1N6ZltJmaH). Adding options 
+for different spreads in future versions would increase the usability of the site and make users more likely to return.
+
+* Add the ability to draw additional 'clarification' cards
+
+Some people like to draw additional cards when performing a Tarot Card Reading, to clarify the meaning of the cards they have drawn or to ask specific questions about 
+related topics. This would be a simple but important feature to add to the site.
+
+* Allow users to choose what cards are included in the deck before shuffling
+
+Tarot Cards are split into five different suits - The Major Arcana, and the Minor Arcana (Swords, Cups, Wands and Pentacles). Some users may wish to draw cards 
+only from the Major Arcana, for example; so the ability to choose which cards are included in the shuffle would be a valuable addition.
+
 ### Accessibility
 
 I have worked hard to ensure the website is as easy to navigate and as accessible to disabled people as possible. To achieve this I:
