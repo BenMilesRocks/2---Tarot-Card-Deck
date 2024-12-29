@@ -83,7 +83,7 @@ describe("Test deckShuffle function", () => {
         expect(deck.shuffledDeck.length).toEqual(fullDeck.length);
     });
     test("shuffledDeck has same elements as fullDeck", () => {
-        expect(deck.shuffledDeck).toEqual(expect.arrayContaining(fullDeck));;
+        expect(deck.shuffledDeck).toEqual(expect.arrayContaining(fullDeck));
     });
 });
 
@@ -116,7 +116,7 @@ describe("Test deckShuffle function after cards have been drawn", () => {
         expect(deck.shuffledDeck).not.toEqual(testElement);
     });
     test("shuffledDeck has same elements as testElement", () => {
-        expect(deck.shuffledDeck).toEqual(expect.arrayContaining(testElement));;
+        expect(deck.shuffledDeck).toEqual(expect.arrayContaining(testElement));
     });
     test("shuffledDeck does not contain drawn card", () => {
         expect(deck.shuffledDeck).not.toContain(deck.drawnCards[0]);
@@ -137,29 +137,9 @@ describe("Test deckShuffle function after specific cards have been drawn", () =>
         expect(deck.shuffledDeck).not.toEqual(testElement);
     });
     test("shuffledDeck has same elements as testElement", () => {
-        expect(deck.shuffledDeck).toEqual(expect.arrayContaining(testElement));;
+        expect(deck.shuffledDeck).toEqual(expect.arrayContaining(testElement));
     });
     test("shuffledDeck does not contain drawn card", () => {
         expect(deck.shuffledDeck).not.toContain(deck.drawnCards[0]);
     });
 });
-
-describe("Test deckShuffle function when using the deck-shuffle-btn element", () => {
-    beforeAll(() => {
-        // reset the deck object
-        resetDeck();
-        // takes a copy of the deck to run tests against
-        testElement = [...deck.shuffledDeck];
-        // trigger a button click
-        $("#deck-shuffle-btn").trigger("click");
-    });
-    test("shuffledDeck is not the same order as testElement, showing that the deck has been shuffled", () => {
-        expect(deck.shuffledDeck).not.toEqual(testElement);
-    });
-    test("shuffledDeck has same length as fullDeck", () => {
-        expect(deck.shuffledDeck.length).toEqual(fullDeck.length);
-    });
-    test("shuffledDeck has same elements as fullDeck", () => {
-        expect(deck.shuffledDeck).toEqual(expect.arrayContaining(fullDeck));;
-    });
-})

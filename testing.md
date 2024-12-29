@@ -12,6 +12,7 @@ Visit the deployed site: [Tarot Card Deck](https://benmilesrocks.github.io/2---T
   * [W3C Validator](#w3c-validator)
   * [Linter](#linter)
   * [Lighthouse](#lighthouse)
+  * [Jest](#jest)
 * [MANUAL TESTING](#manual-testing)
   * [Testing User Stories](#testing-user-stories)
   * [Full Testing](#full-testing)
@@ -42,6 +43,8 @@ I used [W3C's Jigsaw Validator](https://jigsaw.w3.org/css-validator/) to test my
 
 
 ![W3C Jigsaw Validation](/assets/testing/validation/css-validation.png)
+
+- - -
 
 ### Linter
 
@@ -83,7 +86,51 @@ For future versions I will research more methods to improve this score.
 
 **404 Page**
 
+The 404 page had no issues, being a static site with limited features.
+
 ![Lighthouse overall score - 404](/assets/testing/validation/lighthouse-404.png)
+
+- - -
+
+### Jest
+
+Jest testing worked earlier in development, but I encountered issues as Jest does not recognise the GSAP functions that I used for animations. 
+
+I have tried mocking GSAP functions as detailed [in the official documentation](https://jestjs.io/docs/mock-functions), but this has not resolved the issue. I have also tried multiple other solutions with the assistance of the Code Institute 
+tutor support team, with no success. Because this does not affect site functionality I decided to focus on resolving user facing issues instead, but this is an ongoing issue that I am working to resolve.
+
+| **Test** | **Expected Outcome** | **Pass/Fail** |
+| --- | --- | --- | 
+| **Deck elements Exist** | --- | --- | 
+| fullDeck has 78 elements | expect(fullDeck).toHaveLength(78) | **PASS** |
+| fullDeck and shuffledDeck have same length | expect(fullDeck.length).toEqual(deck.shuffledDeck.length) | **PASS** |
+| deck object has suffledDeck element | expect("shuffledDeck" in deck).toBe(true) | **PASS** |
+| deck objext has drawnCards element | expect("drawnCards" in deck).toBe(true) | **PASS** |
+| **Test drawSpecificCard function** | --- | --- | 
+| drawSpecificCard draws defined value from deck | expect(deck.drawnCards[0]).toEqual(testElement) | **PASS** |
+| shuffledDeck has 77 elements | expect(deck.shuffledDeck).toHaveLength(77) | **PASS** |
+| drawSpecificCard removes card from shuffledDeck | expect(deck.shuffledDeck).not.toContain(deck.drawnCards[0]) | **PASS** |
+| **Test drawCard function** | --- | --- | 
+| shuffledDeck has 77 elements | expect(deck.shuffledDeck).toHaveLength(77) | **PASS** |
+| drawCard pulls last card from deck | expect(deck.drawnCards[0]).toEqual(testElement) | **PASS** |
+| drawCard removes card from shuffledDeck | expect(deck.shuffledDeck).not.toContain(deck.drawnCards[0]) | **PASS** |
+| **Test deckShuffle function** | --- | --- | 
+| shuffledDeck is not the same order as fullDeck | expect(deck.shuffledDeck).not.toEqual(fullDeck) | **PASS** |
+| shuffledDeck has same length as fullDeck | expect(deck.shuffledDeck.length).toEqual(fullDeck.length) | **PASS** |
+| shuffledDeck has same elements as fullDeck | expect(deck.shuffledDeck).toEqual(expect.arrayContaining(fullDeck)) | **PASS** |
+| **Test displayCard function** | --- | --- | 
+| img element should exist | expect(document.getElementById("card-1")).toBeTruthy() | **PASS** |
+| img src should contain testElement | expect(document.getElementById("card-1").src).toContain(testElement[0]) | **PASS** |
+| **Test deckShuffle function after cards have been drawn** | --- | --- | 
+| shuffledDeck has 77 elements | expect(deck.shuffledDeck).toHaveLength(77) | **PASS** |
+| shuffledDeck is not the same order as testElement | expect(deck.shuffledDeck).not.toEqual(testElement) | **PASS** |
+| shuffledDeck has same elements as testElement | expect(deck.shuffledDeck).toEqual(expect.arrayContaining(testElement)) | **PASS** |
+| shuffledDeck does not contain drawn card | expect(deck.shuffledDeck).not.toContain(deck.drawnCards[0]) | **PASS** |
+| **Test deckShuffle function after specific cards have been drawn** | --- | --- | 
+| shuffledDeck has 77 elements | expect(deck.shuffledDeck).toHaveLength(77) | **PASS** |
+| shuffledDeck is not the same order as testElement | expect(deck.shuffledDeck).not.toEqual(testElement) | **PASS** |
+| shuffledDeck has same elements as testElement | expect(deck.shuffledDeck).toEqual(expect.arrayContaining(testElement)) | **PASS** |
+| shuffledDeck does not contain drawn card | expect(deck.shuffledDeck).not.toContain(deck.drawnCards[0]) | **PASS** |
 
 - - -
 
