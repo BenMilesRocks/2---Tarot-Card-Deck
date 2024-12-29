@@ -58,27 +58,32 @@ documentation. The code works correctly, and this seems to be an issue with the 
 
 I used Lighthouse within the Chrome Developer Tools to test the performance, accessibility, best practices and SEO of the website.
 
-![Lighthouse overall scores](/assets/testing/validation/lighthouse-overall.png)
+**Home Page**
 
-**Performance**
+![Lighthouse overall scores - index](/assets/testing/validation/lighthouse-overall.png)
+
+*Performance*
 
 ![Performance](/assets/testing/validation/lighthouse-performance.png)
 
 I followed advice from [this Web.dev article](https://web.dev/articles/optimize-lcp) to reduce LCP, but there are still improvements needed in this score. 
 For future versions I will research more methods to improve this score.
 
-**Accessibility**
+*Accessibility*
 
 ![Accessibility](/assets/testing/validation/lighthouse-accessibility.png)
 
-**Best Practices**
+*Best Practices*
 
 ![Best Practices](/assets/testing/validation/lighthouse-best-practices.png)
 
-**SEO**
+*SEO*
 
 ![SEO](/assets/testing/validation/lighthouse-seo.png)
 
+**404 Page**
+
+![Lighthouse overall score - 404](/assets/testing/validation/lighthouse-404.png)
 
 - - -
 
