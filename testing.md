@@ -99,7 +99,7 @@ Jest testing worked earlier in development, but I encountered issues as Jest doe
 I have tried mocking GSAP functions as detailed [in the official documentation](https://jestjs.io/docs/mock-functions), but this has not resolved the issue. I have also tried multiple other solutions with the assistance of the Code Institute 
 tutor support team, with no success. Because this does not affect site functionality I decided to focus on resolving user facing issues instead, but this is an ongoing issue that I am working to resolve.
 
-| **Test** | **Expected Outcome** | **Pass/Fail** |
+| **Expected Outcome** | **Test Performed** | **Pass/Fail** |
 | --- | --- | --- | 
 | **Deck elements Exist** | --- | --- | 
 | fullDeck has 78 elements | expect(fullDeck).toHaveLength(78) | **PASS** |
