@@ -169,7 +169,19 @@ Additional testing was taken by friends and family on a variety of devices and s
 | More Reasources Tab | <ul><li>Display dropdown menu</li><li>Open link in new tab</li></ul> | <ul><li>Clicked More Resources link</li><li>Clicked each link in menu</li></ul> | <ul><li>Displays dropdown menu</li><li>Opens links in new tab</li></ul> | **PASS** |
 | Go Back to Home Page button | Redirect to the Home Page | Clicked the Home Page Link | Redirected to index.html | **PASS** |
 
+I also had to perform manual testing on some functions as I was unable to fix the issues with the Jest testing. To test these functions I altered the resetDeckFirst function, setting the deck to the fullDeck array (meaning all the cards 
+are in order, allowing me to test functions based on this).
 
-
+| **Feature** | **Expected Outcome** | **Testing Performed** | **Result** | **Pass/Fail** |
+| --- | --- | --- | --- | --- |
+| Draw Card button | Draws the top card from the deck, should display <ul><li>The Fool</li><li>The Magician</li><li>The High Priestess</li></ul> | Clicked Draw Card three times | Displayed <ul><li>The Fool</li><li>The Magician</li><li>The High Priestess</li></ul>  | **PASS** |
+| Shuffle Card button | Should reorder the array, preventing the cards from being drawn in order | Clicked Shuffle, clicked Draw Card | Cards were drawn out of order as expected, confirming the deck had been shuffled | **PASS** |
+| Reset button | Should clear the play area and shuffle the cards, preventing the cards from being drawn in order | Clicked Reset, clicked Draw Card | Cards were drawn out of order as expected, confirming the deck had been shuffled | **PASS** |
+| **Draw Specific Card** | --- | --- | --- | --- |
+| Draw Specific Card button | Draw specific card from deck, should be pulled in order from fullDeck array | Tested individual elements as detailed below | Cards displayed as expected | **PASS** |
+| Draw Specific Card button | 1st card should be 'The Fool' | Selected card number 1, clicked draw specific card | Displayed 'The Fool' card | **PASS** |
+| Draw Specific Card button | 78th card should be 'King of Swords' | Selected card number 78, clicked draw specific card | Displayed 'King of Swords' card | **PASS** |
+| Draw Specific Card button | 14th card should be 'Temperence' | Selected card number 14, clicked draw specific card | Displayed 'Temperence' card | **PASS** |
+| Draw Specific Card button | 42nd card should be '7 of Pentacles' | Selected card number 42, clicked draw specific card | Displayed '7 of Pentacles' card | **PASS** |
 
 - - -
