@@ -1,8 +1,8 @@
 # Tarot Card Deck-  Testing
 
-![The Ben Miles Rocks site shown on a variety of screen sizes](/assets/documentation/pages/home-1.png)
+![The Tarot Card Deck website](/assets/documentation/pages/main-page.png)
 
-Visit the deployed site: [Ben Miles Rocks](https://benmilesrocks.github.io/1---Ben-Miles-Rocks/index.html)
+Visit the deployed site: [Tarot Card Deck](https://benmilesrocks.github.io/2---Tarot-Card-Deck/index.html)
 
 - - -
 
