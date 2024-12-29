@@ -302,7 +302,26 @@ Please refer to [testing.md](/testing.md) for all testing carried out.
 
 ### Solved Bugs
 
+| **Issue** | **Action Performed** | **Result** |
+| --- | --- | --- |
+| Sounds will not play if a sound is already being played | Created functions for each audio file, declared the constant for the audio file *inside* the function | Sounds now play even if the page is already playing that audio clip |
+| Card Zoom animations for Reversed cards do not display correctly | <ul><li>Created 'if' statement in toggleZoom function</li><li>Reversed cards are reverted back to normal</li><li>added additional 1/2 rotation to animation, flipping the card upside down in the process</li></ul> | Reversed cards now display correctly when Zoomed in and out |
+| If clicked quickly, it is possible to delete cards in play with the 'Reset' button | Added new class to assign elements for deletion in the resetDeck function, preventing cards in play from being targeted | Cards in play will not be deleted in this way |
+| If clicked quickly, the Reset function interrupts the Shuffle animation | Added shuffleAnimationRunning variable to test if animation is playing. If true, resetDeck does not interrupt this animation | Animations are no longer interrupted |
+
 ### Known Bugs
+
+* Site does not display correctly on the front facing display of the Samsung Galaxy Z Flip 6
+
+This screen does not allow for scrolling, as it is intended for previews of sites and not full operation. It is highly unlikely a user would actually try to use the site this way, and the site works correctly on the main screen. I was unable to find 
+a resolution for this, as it is a very specific edge case that is unlikely to be encountered during normal site usage.
+
+* Automated Jest testing does not function
+
+Although Jest testing worked correctly earlier in development, I am no longer able to get the testing to function correctly. This is because Jest does not recognise the GSAP functions, causing it to raise an error and abandon the testing.
+
+I have tried mocking GSAP functions as detailed [in the official documentation](https://jestjs.io/docs/mock-functions), but this has not resolved the issue. I have also tried multiple other solutions with the assistance of the Code Institute 
+tutor support team, with no success. Because this does not affect site functionality I decided to focus on resolving user facing issues instead, but this is an ongoing issue that I am working to resolve.
 
 ## Credits
 
