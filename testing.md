@@ -163,6 +163,11 @@ Additional testing was taken by friends and family on a variety of devices and s
 | Normal Draw button | All cards drawn will be displayed the correct way up | Selected Normal Draw button, drew multiple cards from deck | All cards drawn normally | **PASS** |
 | Reversed Draw button | All cards drawn will be displayed reversed | Selected Reversed Draw button, drew multiple cards from deck | All cards drawn reversed | **PASS** |
 | Card Zoom function | Selected card will zoom in and out when clicked, animation will play | Clicked cards on display | Selected card zoomed in and out when clicked, animation plays  | **PASS** |
+| **404 Page** | --- | --- | --- | --- |
+| Page Title Link | Redirect to the Home Page | Clicked the Page Title Link | Redirected to index.html | **PASS** |
+| Home Page Link | Redirect to the Home Page | Clicked the Home Page Link | Redirected to index.html | **PASS** |
+| More Reasources Tab | <ul><li>Display dropdown menu</li><li>Open link in new tab</li></ul> | <ul><li>Clicked More Resources link</li><li>Clicked each link in menu</li></ul> | <ul><li>Displays dropdown menu</li><li>Opens links in new tab</li></ul> | **PASS** |
+| Go Back to Home Page button | Redirect to the Home Page | Clicked the Home Page Link | Redirected to index.html | **PASS** |
 
 
 
