@@ -148,6 +148,23 @@ Additional testing was taken by friends and family on a variety of devices and s
 
 | **Feature** | **Expected Outcome** | **Testing Performed** | **Result** | **Pass/Fail** |
 | --- | --- | --- | --- | --- |
+| **Home Page** | --- | --- | --- | --- |
+| *Navigation Bar* | --- | --- | --- | --- |
+| Page Title Link | Link to the Home Page | Clicked the Page Title Link | Redirected to index.html | **PASS** |
+| Home Page Link | Link to the Home Page | Clicked the Home Page Link | Redirected to index.html | **PASS** |
+| Take the Tour Link | Start the interactive tour | Clicked the Take the Tour Link | Begins the interactive tour | **PASS** |
+| More Reasources Tab | <ul><li>Display dropdown menu</li><li>Open link in new tab</li></ul> | <ul><li>Clicked More Resources link</li><li>Clicked each link in menu</li></ul> | <ul><li>Displays dropdown menu</li><li>Opens links in new tab</li></ul> | **PASS** |
+| *Page buttons* | --- | --- | --- | --- |
+| Reset Button | <ul><li>Clear cards displayed</li><li>Play animation to shuffle deck</li></ul> | Clicked reset button | <ul><li>Clears cards displayed</li><li>Plays animation to shuffle deck</li></ul> | **PASS** |
+| Shuffle Deck button | Play shuffle animation | Clicked Shuffle buttom | Shuffle animation plays | **PASS** |
+| Draw Card button | Draw card from deck, play animation | Draw Card buttom | Draws card from deck, plays animation | **PASS** |
+| Draw Specific Card button | Draw card from deck, play animation | Draw Specific Card buttom | Draws card from deck, plays animation | **PASS** |
+| Random Draw button | Cards drawn from deck will randomly be inverted, whilst others will displayed normally | Selected Random Draw button, drew multiple cards from deck | Cards randomly inverted as expected | **PASS** |
+| Normal Draw button | All cards drawn will be displayed the correct way up | Selected Normal Draw button, drew multiple cards from deck | All cards drawn normally | **PASS** |
+| Reversed Draw button | All cards drawn will be displayed reversed | Selected Reversed Draw button, drew multiple cards from deck | All cards drawn reversed | **PASS** |
+| Card Zoom function | Selected card will zoom in and out when clicked, animation will play | Clicked cards on display | Selected card zoomed in and out when clicked, animation plays  | **PASS** |
+
+
 
 
 - - -
