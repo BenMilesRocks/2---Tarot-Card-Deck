@@ -221,8 +221,8 @@ Additional testing was taken by friends and family on a variety of devices and s
 | More Reasources Tab | <ul><li>Display dropdown menu</li><li>Open link in new tab</li></ul> | <ul><li>Clicked More Resources link</li><li>Clicked each link in menu</li></ul> | <ul><li>Displays dropdown menu</li><li>Opens links in new tab</li></ul> | **PASS** |
 | Go Back to Home Page button | Redirect to the Home Page | Clicked the Home Page Link | Redirected to index.html | **PASS** |
 
-I also had to perform manual testing on some functions as I was unable to fix the issues with the Jest testing. To test these functions I altered the resetDeckFirst function, setting the deck to the fullDeck array (meaning all the cards 
-are in order, allowing me to test functions based on this).
+I also had to perform manual testing on some functions as I was unable to fix the issues with the Jest testing. To test these functions I temporarily altered the resetDeckFirst function, 
+setting the deck to the fullDeck array (meaning all the cards are in order, allowing me to test functions based on this).
 
 | **Feature** | **Expected Outcome** | **Testing Performed** | **Result** | **Pass/Fail** |
 | --- | --- | --- | --- | --- |
